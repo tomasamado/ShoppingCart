@@ -11,15 +11,39 @@
       <img src="../../assets/imgs/user.png">
     </ion-col>
     <ion-col style="padding: 16px 0">
-      <h2> Name Last name</h2>
-      <h6> Some user info </h6>
+      <ion-list>
+        <ion-item no-lines>
+          <ion-textarea class="inputitle" rows=1 placeholder="Name" name="name" style="text-align: center">
+            Name
+          </ion-textarea>
+        </ion-item>
+        <ion-item no-lines>
+          <ion-textarea placeholder="Email" rows=1 name="email">
+            email
+          </ion-textarea>
+        </ion-item>
+        <ion-item no-lines>
+          <ion-textarea placeholder="Username" rows=1 name="username">
+            @username
+          </ion-textarea>
+        </ion-item>
+      </ion-list>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col style="text-align: center">
-      <button ion-button outline>
+      <button ion-button outline (click)="changePassword()">
+        Change my password
+      </button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col style="text-align: center">
+      <button ion-button outline (click)="myProducts()">
         My Products
       </button>
     </ion-col>
   </ion-row>
+
+
 </ion-content>

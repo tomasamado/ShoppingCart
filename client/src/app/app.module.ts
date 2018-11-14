@@ -13,7 +13,8 @@ import { ProfilePage } from '../pages/profile/profile';
 import { NewProductPage } from '../pages/new-product/new-product';
 import { MyProductsPage } from '../pages/my-products/my-products';
 import { PhotoLibrary } from '@ionic-native/photo-library';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera } from '@ionic-native/camera';
+import { UserProvider } from '../providers/user/user';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,
-    PhotoLibrary
+    PhotoLibrary,
+    UserProvider
   ]
 })
 export class AppModule {}
