@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>view-product</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <img src="../../assets/imgs/pic.jpg">
+    <ion-card-title padding>
+      Product name
+    </ion-card-title>
+    <ion-card-content>
+      <p>Product description</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button outline icon-start small (click)="addProduct()">
+          <ion-icon name="cart"></ion-icon>
+          Add to cart
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start outline small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col center text-center>
+        <ion-note>
+          Product Date
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

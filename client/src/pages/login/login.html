@@ -1,0 +1,18 @@
+<ion-content padding>
+  <br>
+  <br>
+  <br>
+    <ion-list>
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input type="text" name="username" class="input"></ion-input>
+        </ion-item>
+        <ion-item no-lines>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" name="password" class="input"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <button ion-button block class="loginbutton" (click)="login()" padding>Login</button>
+      <button ion-button block clear (click)="goRegister()" padding>Create Account</button>
+</ion-content>
