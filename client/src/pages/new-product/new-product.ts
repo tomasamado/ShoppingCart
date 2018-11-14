@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PhotoLibrary } from '@ionic-native/photo-library';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
-/**
- * Generated class for the NewProductPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({

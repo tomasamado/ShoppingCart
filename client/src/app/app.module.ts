@@ -12,6 +12,8 @@ import { ViewProductPage } from '../pages/view-product/view-product';
 import { ProfilePage } from '../pages/profile/profile';
 import { NewProductPage } from '../pages/new-product/new-product';
 import { MyProductsPage } from '../pages/my-products/my-products';
+import { PhotoLibrary } from '@ionic-native/photo-library';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { MyProductsPage } from '../pages/my-products/my-products';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Camera,
+    PhotoLibrary
   ]
 })
 export class AppModule {}
