@@ -1,4 +1,3 @@
-
 <ion-header>
   <ion-navbar>
     <ion-title>New product</ion-title>
@@ -6,5 +5,16 @@
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list lines=“none”>
+    <ion-item no-lines>
+      <ion-input type="text" placeholder="Product name" name="product-name"></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-textarea placeholder="Product description" rows=4 name="product-description"></ion-textarea>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-input type="number" placeholder="Quantity" value=""></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button (click)="addPicture()"> Add picture </button>
 </ion-content>

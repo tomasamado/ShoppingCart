@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController} from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { NewProductPage } from '../new-product/new-product';
+import { MyProductsPage } from '../my-products/my-products';
 
 @Component({
   selector: 'page-home',
@@ -12,6 +13,10 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, private alertCtrl: AlertController) {
 
+  }
+
+  myProducts(){
+    this.navCtrl.push(MyProductsPage);
   }
 
   createProduct(){
