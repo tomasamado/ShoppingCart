@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { UserProvider } from '../../providers/user/user';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the RegisterPage page.
@@ -15,9 +17,33 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RegisterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
 
+  user: any = { username: '', email: '', password: '', first_name: '', last_name: '' };
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public userProvider: UserProvider) {
+  }
+  registerUser() {
+    if (this.user.username == "" || this.user.email == "" || this.user.password == "" ||
+        this.user.first_name == "" || this.user.last_name == "") {
+        (this.alertCtrl.create({
+            title: 'Error',
+            subTitle: 'Please fill all the fields',
+            buttons: ['OK']
+        })).present();
+    } else {
+        console.log(this.user);
+        this.userProvider.addUser(this.user).then((result) => {
+            console.log(result);
+            this.navCtrl.push(LoginPage)
+        }, (err) => {
+            let alert = this.alertCtrl.create({
+                title: 'Invalid email',
+                subTitle: 'Please enter a valid email',
+                buttons: ['Dismiss']
+            });
+            alert.present();
+        });
+    }
+}
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
