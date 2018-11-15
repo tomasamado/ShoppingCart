@@ -5,11 +5,11 @@
     <ion-list>
         <ion-item>
           <ion-label floating>Username</ion-label>
-          <ion-input type="text" name="username" class="input"></ion-input>
+          <ion-input type="text" [(ngModel)]="userLogin.username" name="username" class="input"></ion-input>>
         </ion-item>
         <ion-item no-lines>
           <ion-label floating>Password</ion-label>
-          <ion-input type="password" name="password" class="input"></ion-input>
+          <ion-input type="password" [(ngModel)]="userLogin.password" name="password" class="input"></ion-input>
         </ion-item>
       </ion-list>
 

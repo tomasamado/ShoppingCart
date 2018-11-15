@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController} from 'ionic-angular';
+import { NavController, AlertController, NavParams} from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { NewProductPage } from '../new-product/new-product';
 import { MyProductsPage } from '../my-products/my-products';
+import { UserProvider } from '../../providers/user/user';
 
 @Component({
   selector: 'page-home',
@@ -10,9 +11,12 @@ import { MyProductsPage } from '../my-products/my-products';
 })
 
 export class HomePage {
-
-  constructor(public navCtrl: NavController, private alertCtrl: AlertController) {
-
+  user ={};
+  userId = 0;
+  constructor(public navCtrl: NavController, private alertCtrl: AlertController, public navParams: NavParams, public userProvider: UserProvider) {
+    this.userId = navParams.get('userId');
+    this.getUser();
+    console.log(this.user)
   }
 
   myProducts(){
@@ -24,7 +28,7 @@ export class HomePage {
   }
 
   viewProfile(){
-    this.navCtrl.push(ProfilePage);
+    this.navCtrl.push(ProfilePage, { user: this.user });
   }
 
   showConfirm() {
@@ -45,5 +49,13 @@ export class HomePage {
       ]
     });
     confirm.present();
+  }
+
+  getUser() {
+    this.userProvider.getUser(this.userId)
+      .then(data => {
+        this.user = data;
+        console.log(this.user);
+      });
   }
 }

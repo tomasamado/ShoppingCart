@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from '../components/product-component/product-component';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -15,6 +16,7 @@ import { MyProductsPage } from '../pages/my-products/my-products';
 import { PhotoLibrary } from '@ionic-native/photo-library';
 import { Camera } from '@ionic-native/camera';
 import { UserProvider } from '../providers/user/user';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { UserProvider } from '../providers/user/user';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpClientModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [

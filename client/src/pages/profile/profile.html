@@ -42,9 +42,30 @@
   </button>
 
   <ion-row>
-    <ion-col col-6>
-      <button ion-button outline small (click)="changePassword()">
-        Change password
+    <ion-col col-4 style="padding: 16px 0">
+      <img src="../../assets/imgs/user.png">
+    </ion-col>
+    <ion-col style="padding: 16px 0">
+      <ion-list>
+        <ion-item no-lines>
+          <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.first_name" name="first_name" style="text-align: center">
+            {{user.first_name}}</ion-textarea>
+        </ion-item>
+        <ion-item no-lines>
+          <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.email" name="email" style="text-align: center">
+            {{user.email}}</ion-textarea>
+        </ion-item>
+        <ion-item no-lines>
+          <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.username" name="username" style="text-align: center">
+            {{user.username}}</ion-textarea>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col style="text-align: center">
+      <button ion-button outline (click)="changePassword()">
+        Change my password
       </button>
     </ion-col>
     <ion-col col-4>
