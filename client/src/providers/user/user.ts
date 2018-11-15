@@ -85,6 +85,15 @@ export class UserProvider {
     });
   }
 
+  deleteUser(data) {
+    return new Promise(resolve => {
+      this.http.delete(this.apiUrl + 'user/' + data.id + '/', this.tokenHeader).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
   
 
 
