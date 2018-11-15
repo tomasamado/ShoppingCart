@@ -4,46 +4,49 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
+  <img src="../../assets/imgs/user.png" style="width:150px; height:160px" class="center">
+  <button ion-button outline small class='center' (click)='changePicture()'>
+    Change picture
+  </button>
+
+  <ion-list>
+    <ion-item no-lines>
+      <ion-textarea rows=1 placeholder="Name" name="name" style="text-align: center">
+        Name
+      </ion-textarea>
+    </ion-item>
+    <ion-item no-lines>
+        <ion-textarea rows=1 placeholder="Last Name" name="last-name" style="text-align: center">
+          Last Name
+        </ion-textarea>
+      </ion-item>
+    <ion-item no-lines>
+      <ion-textarea placeholder="Email" rows=1 name="email">
+        email
+      </ion-textarea>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-textarea placeholder="Username" rows=1 name="username">
+        @username
+      </ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button outline small class='center' (click)="myProducts()">
+    My Products
+  </button>
+
   <ion-row>
-    <ion-col col-4 style="padding: 16px 0">
-      <img src="../../assets/imgs/user.png">
+    <ion-col col-6>
+      <button ion-button outline small (click)="changePassword()">
+        Change password
+      </button>
     </ion-col>
-    <ion-col style="padding: 16px 0">
-      <ion-list>
-        <ion-item no-lines>
-          <ion-textarea class="inputitle" rows=1 placeholder="Name" name="name" style="text-align: center">
-            Name
-          </ion-textarea>
-        </ion-item>
-        <ion-item no-lines>
-          <ion-textarea placeholder="Email" rows=1 name="email">
-            email
-          </ion-textarea>
-        </ion-item>
-        <ion-item no-lines>
-          <ion-textarea placeholder="Username" rows=1 name="username">
-            @username
-          </ion-textarea>
-        </ion-item>
-      </ion-list>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col style="text-align: center">
-      <button ion-button outline (click)="changePassword()">
-        Change my password
+    <ion-col col-4>
+      <button ion-button outline small color='danger' (click)="deleteUser()">
+        Delete account
       </button>
     </ion-col>
   </ion-row>
-  <ion-row>
-    <ion-col style="text-align: center">
-      <button ion-button outline (click)="myProducts()">
-        My Products
-      </button>
-    </ion-col>
-  </ion-row>
-
-
 </ion-content>
