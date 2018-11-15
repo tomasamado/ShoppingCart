@@ -13,7 +13,7 @@ import { JwtHelper } from 'angular2-jwt';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  user = { username: '', password: '' };
+  userLogin = { username: '', password: '' };
   userId = 0;
   token: any;
   jwtHelper: JwtHelper = new JwtHelper();
@@ -31,7 +31,7 @@ export class LoginPage {
 
   login() {
 
-    this.userProvider.login(this.user).then((result) => {
+    this.userProvider.login(this.userLogin).then((result) => {
 
       this.token = result;
 

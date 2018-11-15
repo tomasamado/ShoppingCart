@@ -6,6 +6,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         id = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+        extra_kwargs = {'password': {'write_only': True}}
         password = serializers.CharField(allow_blank=True, max_length=100, required=False)
 
         fields = ('id', 'username','password', 'email', 'first_name', 'last_name')
