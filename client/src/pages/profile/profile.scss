@@ -5,4 +5,27 @@ page-profile {
         margin-right: auto;
         text-align: center;
     }
+
+    .input .item-inner{
+        box-shadow: none !important;
+        border: none !important;
+        border-bottom-color: transparent !important;
+    }
+    .item-input::after {
+        border-bottom-color: transparent !important;
+        }
+        .item-inner {
+            border-bottom-color: transparent !important;
+            box-shadow: none !important;
+            }
+        
+            .list{
+                box-shadow: none !important;
+                border: none !important;
+                border-bottom-color: transparent !important;
+            }
+            .item-inner, ion-item {
+                border-bottom-color: transparent !important;
+                box-shadow: none !important;
+              }
 }

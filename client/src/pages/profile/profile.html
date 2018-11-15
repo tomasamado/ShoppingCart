@@ -14,21 +14,29 @@
     Save changes
   </button>
 
-  <ion-list style="margin-top: 40px">
+  <ion-list style="margin-top: 40px" no-lines class="list">
     <ion-item no-lines>
-      <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.first_name" name="first_name" style="text-align: center">
+      <ion-label floating>Name</ion-label>
+      <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.first_name" name="first_name" style="text-align: center"
+        class="input">
         {{user.first_name}}</ion-textarea>
     </ion-item>
     <ion-item no-lines>
-      <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.last_name" name="last_name" style="text-align: center">
+      <ion-label floating>Last Name</ion-label>
+      <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.last_name" name="last_name" style="text-align: center"
+        class="input">
         {{user.last_name}}</ion-textarea>
-      </ion-item>
+    </ion-item>
     <ion-item no-lines>
-      <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.email" name="email" style="text-align: center">
+      <ion-label floating>Email</ion-label>
+      <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.email" name="email" style="text-align: center"
+        class="input">
         {{user.email}}</ion-textarea>
     </ion-item>
     <ion-item no-lines>
-      <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.username" name="username" style="text-align: center">
+      <ion-label floating>Username</ion-label>
+      <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.username" name="username" style="text-align: center"
+        class="input">
         {{user.username}}</ion-textarea>
     </ion-item>
   </ion-list>
@@ -36,17 +44,19 @@
   <button ion-button outline small class='center' (click)="myProducts()">
     My Products
   </button>
-  <ion-row>
-    <ion-col style="text-align: center">
-      <button ion-button outline (click)="changePassword()">
-        Change my password
-      </button>
-    </ion-col>
-    <ion-col col-4>
-      <button ion-button outline small color='danger' (click)="deleteUser()">
-        Delete account
-      </button>
-    </ion-col>
-  </ion-row>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 style="text-align: center">
+        <button ion-button outline small (click)="changePassword()">
+          Change password
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button outline small color='danger' (click)="deleteUser()">
+          Delete account
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
