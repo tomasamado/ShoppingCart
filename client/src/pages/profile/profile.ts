@@ -16,7 +16,7 @@ export class ProfilePage {
   userLogin = { username: '', password: '' };
   user: any;
   newPassword:string;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public userProvider: UserProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public userProvider: UserProvider, public camera: Camera) {
     this.user = navParams.get('user');
     console.log(this.user)
   }

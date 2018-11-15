@@ -16,52 +16,26 @@
 
   <ion-list style="margin-top: 40px">
     <ion-item no-lines>
-      <ion-textarea rows=1 placeholder="Name" name="name" style="text-align: center">
-        Name
-      </ion-textarea>
+      <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.first_name" name="first_name" style="text-align: center">
+        {{user.first_name}}</ion-textarea>
     </ion-item>
     <ion-item no-lines>
-        <ion-textarea rows=1 placeholder="Last Name" name="last-name" style="text-align: center">
-          Last Name
-        </ion-textarea>
+      <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.last_name" name="last_name" style="text-align: center">
+        {{user.last_name}}</ion-textarea>
       </ion-item>
     <ion-item no-lines>
-      <ion-textarea placeholder="Email" rows=1 name="email">
-        email
-      </ion-textarea>
+      <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.email" name="email" style="text-align: center">
+        {{user.email}}</ion-textarea>
     </ion-item>
     <ion-item no-lines>
-      <ion-textarea placeholder="Username" rows=1 name="username">
-        @username
-      </ion-textarea>
+      <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.username" name="username" style="text-align: center">
+        {{user.username}}</ion-textarea>
     </ion-item>
   </ion-list>
 
   <button ion-button outline small class='center' (click)="myProducts()">
     My Products
   </button>
-
-  <ion-row>
-    <ion-col col-4 style="padding: 16px 0">
-      <img src="../../assets/imgs/user.png">
-    </ion-col>
-    <ion-col style="padding: 16px 0">
-      <ion-list>
-        <ion-item no-lines>
-          <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.first_name" name="first_name" style="text-align: center">
-            {{user.first_name}}</ion-textarea>
-        </ion-item>
-        <ion-item no-lines>
-          <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.email" name="email" style="text-align: center">
-            {{user.email}}</ion-textarea>
-        </ion-item>
-        <ion-item no-lines>
-          <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.username" name="username" style="text-align: center">
-            {{user.username}}</ion-textarea>
-        </ion-item>
-      </ion-list>
-    </ion-col>
-  </ion-row>
   <ion-row>
     <ion-col style="text-align: center">
       <button ion-button outline (click)="changePassword()">

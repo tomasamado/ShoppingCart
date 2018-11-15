@@ -98,7 +98,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'shoppingcart',
         'USER': 'postgres', # replace with your own username
-        'PASSWORD': 'postgres', # replace with your own password
+        'PASSWORD': '1234', # replace with your own password
         'HOST': 'localhost',
         'PORT': '5432'
     }
