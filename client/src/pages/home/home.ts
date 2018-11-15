@@ -11,7 +11,6 @@ import { UserProvider } from '../../providers/user/user';
 })
 
 export class HomePage {
-  username = {};
   user ={};
   userId = 0;
   constructor(public navCtrl: NavController, private alertCtrl: AlertController, public navParams: NavParams, public userProvider: UserProvider) {
@@ -29,7 +28,7 @@ export class HomePage {
   }
 
   viewProfile(){
-    this.navCtrl.push(ProfilePage);
+    this.navCtrl.push(ProfilePage, { user: this.user });
   }
 
   showConfirm() {

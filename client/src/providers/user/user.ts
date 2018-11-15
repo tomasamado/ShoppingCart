@@ -74,6 +74,16 @@ export class UserProvider {
         });
     });
   }
+  updateUser(data) {
+    var updateUrl = this.apiUrl + 'user/' + data.id + '/'
+    return new Promise(resolve => {
+      this.http.put(updateUrl, data, this.tokenHeader).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 
   
 

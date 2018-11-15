@@ -10,8 +10,10 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
-
+  user ={};
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
+    this.user= navParams.get('user');
+    console.log(this.user)
   }
   myProducts(){
     this.navCtrl.push(MyProductsPage);
@@ -46,6 +48,5 @@ export class ProfilePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
   }
 }
