@@ -9,8 +9,12 @@
   <button ion-button outline small class='center' (click)='changePicture()'>
     Change picture
   </button>
+  <br>
+  <button ion-button outline small class='center' (click)="updateProfile()">
+    Save changes
+  </button>
 
-  <ion-list>
+  <ion-list style="margin-top: 40px">
     <ion-item no-lines>
       <ion-textarea rows=1 placeholder="Name" name="name" style="text-align: center">
         Name
@@ -49,4 +53,5 @@
       </button>
     </ion-col>
   </ion-row>
+
 </ion-content>
