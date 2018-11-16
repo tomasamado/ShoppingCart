@@ -15,17 +15,31 @@ import { LoginPage } from '../login/login';
 })
 export class ProfilePage {
   userLogin = { username: '', password: '' };
-  user: any;
+  user:any={};
+  userId = 0;
   newPassword: string;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public userProvider: UserProvider, public camera: Camera) {
-    this.user = navParams.get('user');
-    console.log(this.user)
+    this.userId = navParams.get('userId');
+    console.log(this.userId)
   }
   myProducts() {
     this.navCtrl.push(MyProductsPage);
   }
 
+  ionViewDidLoad() {
+    console.log("ssd")
+    this.getUser();
+  }
+
+  getUser() {
+    this.userProvider.getUser(this.userId)
+      .then(data => {
+        this.user = data;
+        console.log(this.user);
+      });
+  }
   changePassword() {
+    this.getUser();
     let alert = this.alertCtrl.create({
       title: 'Change password',
       inputs: [
@@ -153,6 +167,16 @@ export class ProfilePage {
     confirm.present();
   }
 
+  updateProfile() {
+    console.log(this.user);
+    this.userProvider.updateUser(this.user).then((result) => {
+      console.log(result);
+    }, (err) => {
+      console.log(err);
+    });
+    this.navCtrl.pop();
+  }
+
   changePicture() {
     console.log('camera');
     const options: CameraOptions = {
@@ -168,6 +192,5 @@ export class ProfilePage {
     });
   }
 
-  ionViewDidLoad() {
-  }
+
 }
