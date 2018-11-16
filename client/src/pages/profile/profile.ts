@@ -5,6 +5,7 @@ import { AlertController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 import { PhotoLibrary } from '@ionic-native/photo-library';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { LoginPage } from '../login/login';
 
 
 @IonicPage()
@@ -15,7 +16,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 export class ProfilePage {
   userLogin = { username: '', password: '' };
   user: any;
-  newPassword:string;
+  newPassword: string;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public userProvider: UserProvider, public camera: Camera) {
     this.user = navParams.get('user');
     console.log(this.user)
@@ -57,17 +58,22 @@ export class ProfilePage {
               this.user.password = data.newPassword;
               this.userProvider.updateUser(this.user).then((result) => {
                 console.log(result);
-
+                let alert = this.alertCtrl.create({
+                  title: 'Success',
+                  message: 'Your password was successfully changed',
+                  buttons: ['Dismiss']
+                });
+                alert.present();
               });
-              alert.present();
+              // alert.present();
             }, (err) => {
 
-              let alert2 = this.alertCtrl.create({
+              let alert = this.alertCtrl.create({
                 title: 'Invalid Password',
                 message: 'The password you entered is incorrect',
                 buttons: ['Dismiss']
               });
-              alert2.present();
+              alert.present();
             });
             console.log('Saved clicked');
           }
@@ -91,6 +97,54 @@ export class ProfilePage {
         {
           text: 'Agree',
           handler: () => {
+            let alert = this.alertCtrl.create({
+              title: 'Confirm Account Deletion',
+              inputs: [
+                {
+                  name: 'password',
+                  placeholder: 'Enter your password',
+                  type: 'password'
+        
+                },
+              ],
+              buttons: [
+                {
+                  text: 'Cancel',
+                  handler: data => {
+                    console.log('Cancel clicked');
+                  }
+                },
+                {
+                  text: 'Confirm',
+                  handler: data => {
+                    console.log(JSON.stringify(data))
+                    this.userLogin.username = this.user.username;
+                    this.userLogin.password = data.password;
+                    this.userProvider.login(this.userLogin).then((result) => {
+                      this.userProvider.deleteUser(this.user).then((result) => {
+                        let alert = this.alertCtrl.create({
+                          title: 'Success',
+                          message: 'The account was successfully deleted',
+                          buttons: ['Dismiss']
+                        });
+                        alert.present();
+                        this.navCtrl.push(LoginPage);
+                      });
+                    }, (err) => {
+        
+                      let alert = this.alertCtrl.create({
+                        title: 'Invalid Password',
+                        message: 'The password you entered is incorrect',
+                        buttons: ['Dismiss']
+                      });
+                      alert.present();
+                    });
+                    console.log('Saved clicked');
+                  }
+                }
+              ]
+            });
+            alert.present();
             console.log('Agree clicked');
           }
         }
