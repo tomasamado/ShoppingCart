@@ -17,6 +17,7 @@ import { PhotoLibrary } from '@ionic-native/photo-library';
 import { Camera } from '@ionic-native/camera';
 import { UserProvider } from '../providers/user/user';
 import { IonicStorageModule } from '@ionic/storage';
+import { EditProductPage } from '../pages/edit-product/edit-product';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { IonicStorageModule } from '@ionic/storage';
     ViewProductPage,
     ProfilePage,
     NewProductPage,
-    MyProductsPage
+    MyProductsPage,
+    EditProductPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { IonicStorageModule } from '@ionic/storage';
     ViewProductPage,
     ProfilePage,
     NewProductPage,
-    MyProductsPage
+    MyProductsPage,
+    EditProductPage
   ],
   providers: [
     StatusBar,

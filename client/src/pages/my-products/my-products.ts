@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { EditProductPage } from '../edit-product/edit-product';
 
 /**
  * Generated class for the MyProductsPage page.
@@ -16,6 +17,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class MyProductsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+ 
+  editProduct(){
+    this.navCtrl.push(EditProductPage);
   }
 
   ionViewDidLoad() {

@@ -4,6 +4,7 @@ import { ProfilePage } from '../profile/profile';
 import { NewProductPage } from '../new-product/new-product';
 import { MyProductsPage } from '../my-products/my-products';
 import { UserProvider } from '../../providers/user/user';
+import { ViewProductPage } from '../view-product/view-product';
 
 @Component({
   selector: 'page-home',
@@ -17,6 +18,10 @@ export class HomePage {
     this.userId = navParams.get('userId');
     this.getUser();
     console.log(this.user)
+  }
+
+  viewProduct(){
+    this.navCtrl.push(ViewProductPage);
   }
 
   myProducts(){
