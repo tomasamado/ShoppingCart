@@ -16,7 +16,7 @@ const httpOptions = {
 @Injectable()
 export class UserProvider {
   token: any;
-  apiUrl = 'http://192.168.10.108:8100/';
+  apiUrl = 'http://192.168.1.4:8100/';
   tokenHeader = {};
 
   constructor(public http: HttpClient, private storage: Storage) {
@@ -77,13 +77,24 @@ export class UserProvider {
   updateUser(data) {
     var updateUrl = this.apiUrl + 'user/' + data.id + '/'
     return new Promise(resolve => {
-      this.http.put(updateUrl, data, this.tokenHeader).subscribe(data => {
+      this.http.patch(updateUrl, data, this.tokenHeader).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
       });
     });
   }
+
+  // updatePassword(data) {
+  //   var updateUrl = this.apiUrl + 'user/' + data.id + '/'
+  //   return new Promise(resolve => {
+  //     this.http.put(updateUrl, data, this.tokenHeader).subscribe(data => {
+  //       resolve(data);
+  //     }, err => {
+  //       console.log(err);
+  //     });
+  //   });
+  // }
 
   deleteUser(data) {
     return new Promise(resolve => {

@@ -16,8 +16,10 @@ export class HomePage {
   userId = 0;
   constructor(public navCtrl: NavController, private alertCtrl: AlertController, public navParams: NavParams, public userProvider: UserProvider) {
     this.userId = navParams.get('userId');
+  }
+
+  ionViewDidLoad(){
     this.getUser();
-    console.log(this.user)
   }
 
   viewProduct(){
@@ -33,7 +35,7 @@ export class HomePage {
   }
 
   viewProfile(){
-    this.navCtrl.push(ProfilePage, { user: this.user });
+    this.navCtrl.push(ProfilePage, { userId: this.userId });
   }
 
   showConfirm() {
