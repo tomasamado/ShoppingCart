@@ -18,6 +18,7 @@ import { Camera } from '@ionic-native/camera';
 import { UserProvider } from '../providers/user/user';
 import { IonicStorageModule } from '@ionic/storage';
 import { EditProductPage } from '../pages/edit-product/edit-product';
+import { ProductProvider } from '../providers/product/product';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { EditProductPage } from '../pages/edit-product/edit-product';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,
     PhotoLibrary,
-    UserProvider
+    UserProvider,
+    ProductProvider
   ]
 })
 export class AppModule {}

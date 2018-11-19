@@ -18,7 +18,7 @@ export class HomePage {
     this.userId = navParams.get('userId');
   }
 
-  ionViewDidLoad(){
+  ionViewDidEnter(){
     this.getUser();
   }
 
