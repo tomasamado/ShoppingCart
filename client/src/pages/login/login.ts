@@ -5,6 +5,7 @@ import { HomePage } from '../home/home';
 import { UserProvider } from '../../providers/user/user';
 import { Storage } from '@ionic/storage';
 import { JwtHelper } from 'angular2-jwt';
+import { ProductProvider } from '../../providers/product/product';
 
 
 @IonicPage()
@@ -18,11 +19,12 @@ export class LoginPage {
   token: any;
   jwtHelper: JwtHelper = new JwtHelper();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public userProvider: UserProvider, private storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public userProvider: UserProvider, private storage: Storage, public productProvider: ProductProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+    this.productProvider.deleteFromStorage()
   }
 
   goRegister() {

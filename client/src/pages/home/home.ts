@@ -27,6 +27,7 @@ export class HomePage {
 
   ionViewDidLoad() {
     this.productProvider.setTokenHeader();
+    this.userProvider.setTokenHeader();
   }
 
   viewProduct(product) {
@@ -57,7 +58,9 @@ export class HomePage {
         {
           text: 'Yes',
           handler: () => {
-            this.navCtrl.pop();
+            this.productProvider.deleteFromStorage().then((result) => {
+              this.navCtrl.pop();
+            });
           }
         }
       ]

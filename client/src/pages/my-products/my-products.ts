@@ -27,10 +27,10 @@ export class MyProductsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyProductsPage');
-    this.getProduct();
+    this.getOwnProduct();
   }
 
-  getProduct() {
+  getOwnProduct() {
     this.productProvider.getOwnProducts()
       .then(data => {
         this.products = data;
