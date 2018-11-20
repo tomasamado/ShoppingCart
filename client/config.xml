@@ -86,6 +86,6 @@
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="To choose photos" />
     </plugin>
     <plugin name="cordova-plugin-camera" spec="4.0.3" />
-    <allow-navigation href="http://192.168.1.8:8100" sessionid="d165a1a8" />
+    <allow-navigation href="http://192.168.1.8:8100" sessionid="56a3d7c4" />
     <engine name="android" spec="7.1.2" />
 </widget>

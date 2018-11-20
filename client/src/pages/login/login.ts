@@ -42,6 +42,7 @@ export class LoginPage {
       this.userId = decoded.user_id;
 
       this.navCtrl.push(HomePage, { userId: this.userId });
+      
     }, (err) => {
 
       let alert = this.alertCtrl.create({

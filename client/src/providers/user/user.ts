@@ -74,6 +74,7 @@ export class UserProvider {
         });
     });
   }
+  
   updateUser(data) {
     var updateUrl = this.apiUrl + 'user/' + data.id + '/'
     return new Promise(resolve => {
