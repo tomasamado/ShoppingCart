@@ -14,8 +14,10 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
   templateUrl: 'view-product.html',
 })
 export class ViewProductPage {
+  product:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+    this.product = navParams.get('product');
   }
 
   addProduct(){
