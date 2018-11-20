@@ -51,6 +51,15 @@ export class ProductProvider {
       });
     });
   }
+  getOwnProducts() {
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl + 'ownproduct', this.tokenHeader).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
   createProduct(data) {
     return new Promise((resolve, reject) => {
       this.http.post(this.apiUrl + 'product/', JSON.stringify(data), this.tokenHeader)
