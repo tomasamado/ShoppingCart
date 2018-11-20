@@ -14,8 +14,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'edit-product.html',
 })
 export class EditProductPage {
-
+  product:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.product = navParams.get('product');
   }
 
   ionViewDidLoad() {

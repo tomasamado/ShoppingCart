@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EditProductPage } from '../edit-product/edit-product';
+import { ProductProvider } from '../../providers/product/product';
 
 /**
  * Generated class for the MyProductsPage page.
@@ -15,16 +16,25 @@ import { EditProductPage } from '../edit-product/edit-product';
   templateUrl: 'my-products.html',
 })
 export class MyProductsPage {
+  products:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public productProvider: ProductProvider) {
   }
  
-  editProduct(){
-    this.navCtrl.push(EditProductPage);
+  editProduct(product){
+    this.navCtrl.push(EditProductPage, {product: product});
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyProductsPage');
+    this.getProduct();
   }
 
+  getProduct() {
+    this.productProvider.getOwnProducts()
+      .then(data => {
+        this.products = data;
+        console.log(this.products);
+      });
+  }
 }
