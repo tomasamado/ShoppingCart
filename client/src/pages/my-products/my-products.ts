@@ -25,7 +25,7 @@ export class MyProductsPage {
     this.navCtrl.push(EditProductPage, {product: product});
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     console.log('ionViewDidLoad MyProductsPage');
     this.getOwnProduct();
   }

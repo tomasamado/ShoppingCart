@@ -73,4 +73,23 @@ export class ProductProvider {
         });
     });
   }
+  updateProduct(data) {
+    var updateUrl = this.apiUrl + 'product/' + data.id + '/'
+    return new Promise(resolve => {
+      this.http.put(updateUrl, data, this.tokenHeader).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  deleteProduct(data) {
+    return new Promise(resolve => {
+      this.http.delete(this.apiUrl + 'product/' + data.id + '/', this.tokenHeader).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 }
