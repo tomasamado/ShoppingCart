@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PhotoLibrary } from '@ionic-native/photo-library';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { ProductProvider } from '../../providers/product/product';
 
 
 @IonicPage()
@@ -11,9 +12,12 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 })
 export class NewProductPage {
   photolibrary: any;
+  //product: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private photoLibrary: PhotoLibrary, private camera: Camera) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private photoLibrary: PhotoLibrary, private camera: Camera, public productProvider: ProductProvider) {
   }
+
+  product: any = { title: "", description: "", price :"", quantity: ""};
 
   addPicture() {
     console.log('camera');
@@ -28,5 +32,13 @@ export class NewProductPage {
       let base64Image = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {
     });
+  }
+  addProduct(){
+      this.productProvider.createProduct(this.product).then((result) => {
+        console.log(result);
+      }, (err) => {
+        console.log(err);
+      });
+      this.navCtrl.pop();
   }
 }

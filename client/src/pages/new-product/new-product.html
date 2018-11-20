@@ -7,19 +7,20 @@
 <ion-content padding>
   <ion-list lines=“none”>
     <ion-item no-lines>
-      <ion-input type="text" placeholder="Product name" name="product-name"></ion-input>
+      <ion-input type="text" placeholder="Title" [(ngModel)]="product.title" name="title"></ion-input>
     </ion-item>
     <ion-item no-lines>
-      <ion-textarea placeholder="Product description" rows=4 name="product-description"></ion-textarea>
+      <ion-textarea placeholder="description" rows=4 [(ngModel)]="product.description" name="description">></ion-textarea>
     </ion-item>
     <ion-item no-lines>
-      <ion-input type="number" placeholder="Quantity" value=""></ion-input>
+      <ion-input type="number" placeholder="Quantity"[(ngModel)]="product.quantity"></ion-input>
     </ion-item>
     <ion-row style="text-align: center">
     <ion-item no-lines>
-      <ion-input type="number" placeholder="$Price" value=""></ion-input>
+      <ion-input type="number" placeholder="Price"[(ngModel)]="product.price" value=""></ion-input>
     </ion-item>
   </ion-row>
   </ion-list>
-  <button ion-button (click)="addPicture()"> Add picture </button>
+  <button ion-button (click)="addPicture()"> Add Picture </button>
+  <button ion-button (click)="addProduct()"> Add Product </button>
 </ion-content>
