@@ -5,12 +5,7 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { AlertController } from 'ionic-angular';
-/*
-  Generated class for the ProductProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 
 const httpOptions = {
   headers: new HttpHeaders({

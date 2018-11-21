@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EditProductPage } from '../edit-product/edit-product';
 import { ProductProvider } from '../../providers/product/product';
 
-/**
- * Generated class for the MyProductsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
