@@ -1,7 +1,8 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from shoppingcartapp.models import Product
+from shoppingcartapp.models import Product, Comment
 from drf_extra_fields.fields import Base64ImageField
+from django.db import models
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -44,5 +45,15 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ('id', 'image','title','description','price','quantity','created','user_id')
+
+class CommentSerializer(serializers.ModelSerializer):
+
+
+    class Meta:
+        model = Comment
+        # parent_id = models.ForeignKey(Comment, on_delete=models.CASCADE, null=True)
+        fields = ('id', 'content','user_id','product_id','parent_id')
+        depth = 1
+        
         
 

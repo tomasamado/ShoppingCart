@@ -19,3 +19,13 @@ class Product(models.Model):
 
     class Meta:
         ordering = ('created',)
+
+class Comment(models.Model):
+
+    content = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    parent_id = models.ForeignKey('self', on_delete=models.CASCADE, null=True)
+    product_id = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
+
+

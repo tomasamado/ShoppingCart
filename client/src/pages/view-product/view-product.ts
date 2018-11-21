@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { CommentProvider } from '../../providers/comment/comment';
 
 
 @IonicPage()
@@ -9,9 +10,14 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 })
 export class ViewProductPage {
   product:any;
+  comments:any = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public commentProvider: CommentProvider) {
     this.product = navParams.get('product');
+  }
+
+  ionViewDidEnter() {
+    this.getComments();
   }
 
   addProduct(){
@@ -21,7 +27,14 @@ export class ViewProductPage {
       });
       toast.present();
     }
-
+    
+  getComments(){
+    this.commentProvider.getComments()
+      .then(data => {
+        this.comments = data;
+        console.log(this.comments);
+      });
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ViewProductPage');

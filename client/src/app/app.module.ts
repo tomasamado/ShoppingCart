@@ -19,6 +19,7 @@ import { UserProvider } from '../providers/user/user';
 import { IonicStorageModule } from '@ionic/storage';
 import { EditProductPage } from '../pages/edit-product/edit-product';
 import { ProductProvider } from '../providers/product/product';
+import { CommentProvider } from '../providers/comment/comment';
 import { CartPage } from '../pages/cart/cart';
 
 
@@ -63,7 +64,8 @@ import { CartPage } from '../pages/cart/cart';
     Camera,
     PhotoLibrary,
     UserProvider,
-    ProductProvider
+    ProductProvider,
+    CommentProvider
   ]
 })
 export class AppModule {}

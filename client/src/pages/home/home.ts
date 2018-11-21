@@ -6,6 +6,7 @@ import { MyProductsPage } from '../my-products/my-products';
 import { UserProvider } from '../../providers/user/user';
 import { ViewProductPage } from '../view-product/view-product';
 import { ProductProvider } from '../../providers/product/product';
+import { CommentProvider } from '../../providers/comment/comment';
 import { CartPage } from '../cart/cart';
 
 @Component({
@@ -17,18 +18,19 @@ export class HomePage {
   user = {};
   userId = 0;
   products: any;
-  constructor(public navCtrl: NavController, private alertCtrl: AlertController, public navParams: NavParams, public userProvider: UserProvider, public productProvider: ProductProvider) {
+  constructor(public navCtrl: NavController, private alertCtrl: AlertController, public navParams: NavParams, public userProvider: UserProvider, public productProvider: ProductProvider, public commentProvider: CommentProvider) {
     this.userId = navParams.get('userId');
   }
 
   ionViewDidEnter() {
     this.getUser();
-    this.getProduct();
+    this.getProducts();
   }
 
   ionViewDidLoad() {
     this.productProvider.setTokenHeader();
     this.userProvider.setTokenHeader();
+    this.commentProvider.setTokenHeader();
   }
 
   viewProduct(product) {
@@ -76,7 +78,7 @@ export class HomePage {
         console.log(this.user);
       });
   }
-  getProduct() {
+  getProducts() {
     this.productProvider.getProducts()
       .then(data => {
         this.products = data;
