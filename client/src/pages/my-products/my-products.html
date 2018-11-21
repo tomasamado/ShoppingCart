@@ -40,7 +40,7 @@
         <ion-item *ngFor="let product of products" (click) ="editProduct(product)" >
             <ion-row>
                 <ion-col col-3 no-padding>
-                    <img height="70" width="70" src="../../assets/imgs/pic.jpg">
+                    <img height="70" width="70" [src]="product.image">
                 </ion-col>
                 <ion-col>
                     <button ion-item no-lines>

@@ -19,18 +19,35 @@ export class NewProductPage {
 
   product: any = {title: "", description: "", price :"", quantity: ""};
 
+  // addPhoto() {
+  //   console.log('camera');
+  //   const options: CameraOptions = {
+  //     quality: 100,
+  //     destinationType: this.camera.DestinationType.DATA_URL,
+  //     sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+  //     saveToPhotoAlbum: false
+  //   }
+
+  //   this.camera.getPicture(options).then((imageData) => {
+  //     let base64Image = 'data:image/jpeg;base64,' + imageData;
+  //   }, (err) => {
+  //   });
+  // }
+  
   addPicture() {
     console.log('camera');
     const options: CameraOptions = {
-      quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       saveToPhotoAlbum: false
     }
 
     this.camera.getPicture(options).then((imageData) => {
-      let base64Image = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
+      this.product.image = 'data:image/jpeg;base64,' + imageData;
+      console.log('photo from library');
+      console.log(this.product.image);
+    }, (error) => {
+      console.log(error);
     });
   }
   addProduct(){

@@ -23,6 +23,7 @@ export class EditProductPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditProductPage');
+    console.log(this.product);
   }
   updateProduct() {
     console.log(this.product);
