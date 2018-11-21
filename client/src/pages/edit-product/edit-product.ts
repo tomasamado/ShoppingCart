@@ -55,7 +55,7 @@ export class EditProductPage {
                 buttons: ['Dismiss']
               });
               alert.present();
-              this.navCtrl.push(MyProductsPage);
+              this.navCtrl.pop();
             });
           }
         }
