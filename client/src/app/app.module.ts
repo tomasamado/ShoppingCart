@@ -19,6 +19,7 @@ import { UserProvider } from '../providers/user/user';
 import { IonicStorageModule } from '@ionic/storage';
 import { EditProductPage } from '../pages/edit-product/edit-product';
 import { ProductProvider } from '../providers/product/product';
+import { CommentProvider } from '../providers/comment/comment';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { ProductProvider } from '../providers/product/product';
     Camera,
     PhotoLibrary,
     UserProvider,
-    ProductProvider
+    ProductProvider,
+    CommentProvider
   ]
 })
 export class AppModule {}
