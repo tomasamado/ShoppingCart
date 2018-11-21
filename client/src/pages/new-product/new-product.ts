@@ -14,7 +14,7 @@ export class NewProductPage {
   photolibrary: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private photoLibrary: PhotoLibrary, private camera: Camera, public productProvider: ProductProvider) {
-    this.product = navParams.get('product');
+
   }
 
   product: any = {title: "", description: "", price :"", quantity: "", image: ""};

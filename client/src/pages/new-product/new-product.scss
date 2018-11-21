@@ -10,5 +10,36 @@ page-new-product {
         margin-right: auto;
         text-align: center;
     }
+    .input .item-inner{
+        box-shadow: none !important;
+        border: none !important;
+        border-bottom-color: lightgrey !important;
+    }
+    .item-input::after {
+        border-bottom-color:lightgrey !important;
+    }
+    
+    .item-inner {
+        border-bottom-color: lightgrey !important;
+        box-shadow: none !important;
+    }
+        
+    .list{
+        box-shadow: none !important;
+        border: none !important;
+        border-bottom-color:transparent !important;
+    }
+    .list-ios>.item-block:first-child {
+        border-top: none;
+    }
+    .list-ios>.item-block:last-child {
+        border-bottom: none;
+    }
+    .list-md>.item-block:first-child {
+        border-top: none;
+    }
+    .list-md>.item-block:last-child {
+        border-bottom: none;
+    }
 
 }
