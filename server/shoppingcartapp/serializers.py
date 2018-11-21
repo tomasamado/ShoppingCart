@@ -52,7 +52,8 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         # parent_id = models.ForeignKey(Comment, on_delete=models.CASCADE, null=True)
-        fields = ('id', 'content','user_id','parent_id')
+        fields = ('id', 'content','user_id','product_id','parent_id')
+        depth = 1
         
         
 
