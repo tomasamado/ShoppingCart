@@ -6,6 +6,7 @@ import { MyProductsPage } from '../my-products/my-products';
 import { UserProvider } from '../../providers/user/user';
 import { ViewProductPage } from '../view-product/view-product';
 import { ProductProvider } from '../../providers/product/product';
+import { CartPage } from '../cart/cart';
 
 @Component({
   selector: 'page-home',
@@ -81,5 +82,8 @@ export class HomePage {
         this.products = data;
         console.log(this.products);
       });
+  }
+  goToCart(){
+    this.navCtrl.push(CartPage);
   }
 }

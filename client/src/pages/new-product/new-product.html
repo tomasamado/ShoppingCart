@@ -11,17 +11,17 @@
         <p><img [src]="product.image"></p>
     </ion-item>
     <ion-item>
-      <ion-input type="text" placeholder="Title" [(ngModel)]="product.title" name="title"></ion-input>
+      <ion-input type="text" placeholder="Title" [(ngModel)]="product.title"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-textarea placeholder="Description" rows=2 [(ngModel)]="product.description" name="description"></ion-textarea>
+      <ion-textarea placeholder="Description" rows=2 [(ngModel)]="product.description"></ion-textarea>
     </ion-item>
     <ion-item>
       <ion-input type="number" placeholder="Quantity" [(ngModel)]="product.quantity"></ion-input>
     </ion-item>
     <ion-row style="text-align: center">
       <ion-item>
-        <ion-input type="number" placeholder="Price" [(ngModel)]="product.price" value=""></ion-input>
+        <ion-input type="number" placeholder="Price" [(ngModel)]="product.price"></ion-input>
       </ion-item>
     </ion-row>
   </ion-list>

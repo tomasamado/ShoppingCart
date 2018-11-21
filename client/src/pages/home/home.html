@@ -1,9 +1,16 @@
 <ion-header>
   <ion-toolbar no-border-top>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goToCart()">
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
     <button ion-button icon-only menuToggle left>
       <ion-icon class="menubutton" name="menu"></ion-icon>
     </button>
+    <ion-searchbar></ion-searchbar>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-menu [content]="mycontent" type="overlay">
@@ -39,22 +46,22 @@
 <ion-nav #mycontent [root]="rootPage"></ion-nav>
 
 <ion-content padding>
-    <ion-list >
-        <ion-grid>
-            <ion-item *ngFor="let product of products" (click) ="viewProduct(product)" style="text-overflow: ellipsis">
-                <ion-row>
-                    <ion-col col-3 no-padding>
-                        <img height="70" width="70" [src]="product.image">
-                    </ion-col>
-                    <ion-col >
-                        <button ion-item no-lines>
-                            <h2 style="width: 150px; text-overflow: ellipsis">{{product.title}}</h2>
-                            <p style="width: 150px; text-overflow: ellipsis">{{product.description}}</p>
-                            <p style="width: 150px; text-overflow: ellipsis"> ${{product.price}} </p>
-                        </button>
-                    </ion-col>
-                </ion-row>
-            </ion-item>
-        </ion-grid>
-    </ion-list >
+  <ion-list>
+    <ion-grid>
+      <ion-item *ngFor="let product of products" (click)="viewProduct(product)" style="text-overflow: ellipsis">
+        <ion-row>
+          <ion-col col-3 no-padding>
+            <img height="70" width="70" [src]="product.image">
+          </ion-col>
+          <ion-col>
+            <button ion-item no-lines>
+              <h2 style="width: 150px; text-overflow: ellipsis">{{product.title}}</h2>
+              <p style="width: 150px; text-overflow: ellipsis">{{product.description}}</p>
+              <p style="width: 150px; text-overflow: ellipsis"> ${{product.price}} </p>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-grid>
+  </ion-list>
 </ion-content>

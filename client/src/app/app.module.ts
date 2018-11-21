@@ -19,6 +19,7 @@ import { UserProvider } from '../providers/user/user';
 import { IonicStorageModule } from '@ionic/storage';
 import { EditProductPage } from '../pages/edit-product/edit-product';
 import { ProductProvider } from '../providers/product/product';
+import { CartPage } from '../pages/cart/cart';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ProductProvider } from '../providers/product/product';
     ProfilePage,
     NewProductPage,
     MyProductsPage,
-    EditProductPage
+    EditProductPage,
+    CartPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { ProductProvider } from '../providers/product/product';
     ProfilePage,
     NewProductPage,
     MyProductsPage,
-    EditProductPage
+    EditProductPage,
+    CartPage
   ],
   providers: [
     StatusBar,
