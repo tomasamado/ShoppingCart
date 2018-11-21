@@ -37,20 +37,20 @@
 <ion-content padding>
   <ion-list>
     <ion-grid>
-        <ion-item *ngFor="let product of products" (click) ="editProduct(product)" >
-            <ion-row>
-                <ion-col col-3 no-padding>
-                    <img height="70" width="70" [src]="product.image">
-                </ion-col>
-                <ion-col>
-                    <button ion-item no-lines>
-                        <h2>{{product.title}}</h2>
-                        <p> {{product.description}}</p>
-                        <p> {{product.price}} </p>
-                    </button>
-                </ion-col>
-            </ion-row>
-        </ion-item>
+      <ion-item *ngFor="let product of products" (click)="editProduct(product)">
+        <ion-row>
+          <ion-col col-3 no-padding>
+            <img height="70" width="70" [src]="product.image">
+          </ion-col>
+          <ion-col>
+            <button ion-item no-lines>
+              <h2 style="width: 150px; text-overflow: ellipsis">{{product.title}}</h2>
+              <p style="width: 150px; text-overflow: ellipsis">{{product.description}}</p>
+              <p style="width: 150px; text-overflow: ellipsis"> ${{product.price}} </p>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-item>
     </ion-grid>
-</ion-list>
+  </ion-list>
 </ion-content>
