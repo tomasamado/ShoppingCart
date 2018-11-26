@@ -25,7 +25,6 @@ export class HomePage {
   jwtHelper: JwtHelper = new JwtHelper();
   token:any;
   constructor(public navCtrl: NavController, private alertCtrl: AlertController, public navParams: NavParams, public userProvider: UserProvider, public productProvider: ProductProvider, public commentProvider: CommentProvider, public tokenProvider: TokenProvider) {
-
   }
 
   ionViewDidEnter() {
@@ -76,7 +75,8 @@ export class HomePage {
           text: 'Yes',
           handler: () => {
             this.tokenProvider.deleteFromStorage().then((result) => {
-              this.navCtrl.push(LoginPage);
+              this.navCtrl.setRoot(LoginPage);
+              this.navCtrl.pop;
             });
           }
         }
