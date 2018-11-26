@@ -39,7 +39,7 @@ export class LoginPage {
 
       this.storage.set('JWT', this.token.access);
 
-      this.navCtrl.push(HomePage);
+      this.navCtrl.setRoot(HomePage);
       
     }, (err) => {
 

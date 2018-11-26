@@ -33,6 +33,7 @@ export class HomePage {
 
   ionViewDidLoad() {
     this.tokenProvider.setTokenHeader();
+    //this.navCtrl.setRoot(HomePage);
   }
 
   viewProduct(product) {
