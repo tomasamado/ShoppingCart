@@ -6,6 +6,7 @@ import { UserProvider } from '../../providers/user/user';
 import { Storage } from '@ionic/storage';
 import { JwtHelper } from 'angular2-jwt';
 import { ProductProvider } from '../../providers/product/product';
+import { TokenProvider } from '../../providers/token/token';
 
 
 @IonicPage()
@@ -19,12 +20,11 @@ export class LoginPage {
   token: any;
   jwtHelper: JwtHelper = new JwtHelper();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public userProvider: UserProvider, private storage: Storage, public productProvider: ProductProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public userProvider: UserProvider, private storage: Storage, public productProvider: ProductProvider, public tokenProvider:TokenProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
-    this.productProvider.deleteFromStorage()
   }
 
   goRegister() {
@@ -39,11 +39,7 @@ export class LoginPage {
 
       this.storage.set('JWT', this.token.access);
 
-      var decoded = this.jwtHelper.decodeToken(this.token.access);
-
-      this.userId = decoded.user_id;
-
-      this.navCtrl.push(HomePage, { userId: this.userId });
+      this.navCtrl.push(HomePage);
       
     }, (err) => {
 
