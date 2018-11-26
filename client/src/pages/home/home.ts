@@ -8,6 +8,7 @@ import { ViewProductPage } from '../view-product/view-product';
 import { ProductProvider } from '../../providers/product/product';
 import { CommentProvider } from '../../providers/comment/comment';
 import { CartPage } from '../cart/cart';
+import {TokenProvider} from '../../providers/token/token'
 
 @Component({
   selector: 'page-home',
@@ -19,7 +20,7 @@ export class HomePage {
   userId = 0;
   filterData: any = [];
   products: any;
-  constructor(public navCtrl: NavController, private alertCtrl: AlertController, public navParams: NavParams, public userProvider: UserProvider, public productProvider: ProductProvider, public commentProvider: CommentProvider) {
+  constructor(public navCtrl: NavController, private alertCtrl: AlertController, public navParams: NavParams, public userProvider: UserProvider, public productProvider: ProductProvider, public commentProvider: CommentProvider, public tokenProvider: TokenProvider) {
     this.userId = navParams.get('userId');
   }
 
@@ -29,9 +30,7 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    this.productProvider.setTokenHeader();
-    this.userProvider.setTokenHeader();
-    this.commentProvider.setTokenHeader();
+    this.tokenProvider.setTokenHeader();
   }
 
   viewProduct(product) {
@@ -62,7 +61,7 @@ export class HomePage {
         {
           text: 'Yes',
           handler: () => {
-            this.productProvider.deleteFromStorage().then((result) => {
+            this.tokenProvider.deleteFromStorage().then((result) => {
               this.navCtrl.pop();
             });
           }
