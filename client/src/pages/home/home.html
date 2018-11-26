@@ -51,6 +51,7 @@
   </div> -->
   <ion-list>
     <ion-grid>
+      <!-- <component *ngIf="data"></component> -->
       <ion-item *ngFor="let product of filterData" (click)="viewProduct(product)" style="text-overflow: ellipsis">
         <ion-row>
           <ion-col col-3 no-padding>

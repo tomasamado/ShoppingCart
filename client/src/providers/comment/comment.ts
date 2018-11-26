@@ -13,7 +13,7 @@ const httpOptions = {
 @Injectable()
 export class CommentProvider {
   token: any;
-  apiUrl = 'http://192.168.10.105:8100/';
+  apiUrl = 'http://192.168.43.3:8100/';
   tokenHeader = {};
 
   constructor(public http: HttpClient, public storage:Storage) {
