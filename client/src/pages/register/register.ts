@@ -31,7 +31,7 @@ export class RegisterPage {
         })).present();
     } else {
         console.log(this.user);
-        this.userProvider.addUser(this.user).then((result) => {
+        this.userProvider.addUser(this.user).subscribe((result) => {
             console.log(result);
             this.navCtrl.push(LoginPage)
         }, (err) => {

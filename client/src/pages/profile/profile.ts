@@ -33,7 +33,7 @@ export class ProfilePage {
 
   getUser() {
     this.userProvider.getUser(this.userId)
-      .then(data => {
+      .subscribe(data => {
         this.user = data;
         console.log(this.user);
       });
@@ -68,9 +68,9 @@ export class ProfilePage {
             console.log(JSON.stringify(data))
             this.userLogin.username = this.user.username;
             this.userLogin.password = data.currentPassword;
-            this.userProvider.login(this.userLogin).then((result) => {
+            this.userProvider.login(this.userLogin).subscribe((result) => {
               this.user.password = data.newPassword;
-              this.userProvider.updateUser(this.user).then((result) => {
+              this.userProvider.updateUser(this.user).subscribe((result) => {
                 console.log(result);
                 let alert = this.alertCtrl.create({
                   title: 'Success',
@@ -134,8 +134,8 @@ export class ProfilePage {
                     console.log(JSON.stringify(data))
                     this.userLogin.username = this.user.username;
                     this.userLogin.password = data.password;
-                    this.userProvider.login(this.userLogin).then((result) => {
-                      this.userProvider.deleteUser(this.user).then((result) => {
+                    this.userProvider.login(this.userLogin).subscribe((result) => {
+                      this.userProvider.deleteUser(this.user).subscribe((result) => {
                         let alert = this.alertCtrl.create({
                           title: 'Success',
                           message: 'The account was successfully deleted',
@@ -169,7 +169,7 @@ export class ProfilePage {
 
   updateProfile() {
     console.log(this.user);
-    this.userProvider.updateUser(this.user).then((result) => {
+    this.userProvider.updateUser(this.user).subscribe((result) => {
       console.log(result);
     }, (err) => {
       console.log(err);

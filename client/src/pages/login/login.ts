@@ -33,7 +33,7 @@ export class LoginPage {
 
   login() {
 
-    this.userProvider.login(this.userLogin).then((result) => {
+    this.userProvider.login(this.userLogin).subscribe((result) => {
 
       this.token = result;
 

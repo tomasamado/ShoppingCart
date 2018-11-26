@@ -74,14 +74,14 @@ export class HomePage {
 
   getUser() {
     this.userProvider.getUser(this.userId)
-      .then(data => {
+      .subscribe(data => {
         this.user = data;
         console.log(this.user);
       });
   }
   getProducts() {
     this.productProvider.getProducts()
-      .then(data => {
+      .subscribe(data => {
         this.products = data;
         this.filterData = data;
         console.log(this.products);

@@ -16,7 +16,7 @@ const httpOptions = {
 @Injectable()
 export class UserProvider {
   token: any;
-  apiUrl = 'http://192.168.43.3:8100/';
+  apiUrl = 'http://192.168.1.8:8100/';
   tokenHeader = {};
 
   constructor(public http: HttpClient, private storage: Storage) {
@@ -44,67 +44,24 @@ export class UserProvider {
   }
 
   login(data) {
-    return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl + 'api/token/', JSON.stringify(data), httpOptions)
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
-        });
-    });
+    return this.http.post(this.apiUrl + 'api/token/', JSON.stringify(data), httpOptions)
   }
 
   getUser(id) {
-    return new Promise(resolve => {
-      this.http.get(this.apiUrl + 'user/' + id).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
+    return this.http.get(this.apiUrl + 'user/' + id)
   }
 
   addUser(data) {
-    return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl + 'user/', JSON.stringify(data), httpOptions)
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
-        });
-    });
+    return this.http.post(this.apiUrl + 'user/', JSON.stringify(data), httpOptions)
   }
   
   updateUser(data) {
-    var updateUrl = this.apiUrl + 'user/' + data.id + '/'
-    return new Promise(resolve => {
-      this.http.patch(updateUrl, data, this.tokenHeader).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
+    var updateUrl = this.apiUrl + 'user/' + data.id + '/';
+    return this.http.patch(updateUrl, data, this.tokenHeader)
   }
 
-  // updatePassword(data) {
-  //   var updateUrl = this.apiUrl + 'user/' + data.id + '/'
-  //   return new Promise(resolve => {
-  //     this.http.put(updateUrl, data, this.tokenHeader).subscribe(data => {
-  //       resolve(data);
-  //     }, err => {
-  //       console.log(err);
-  //     });
-  //   });
-  // }
-
   deleteUser(data) {
-    return new Promise(resolve => {
-      this.http.delete(this.apiUrl + 'user/' + data.id + '/', this.tokenHeader).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
+    return this.http.delete(this.apiUrl + 'user/' + data.id + '/', this.tokenHeader)
   }
   
 

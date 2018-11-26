@@ -27,7 +27,7 @@ export class EditProductPage {
   }
   updateProduct() {
     console.log(this.product);
-    this.productProvider.updateProduct(this.product).then((result) => {
+    this.productProvider.updateProduct(this.product).subscribe((result) => {
       console.log(result);
     }, (err) => {
       console.log(err);
@@ -48,7 +48,7 @@ export class EditProductPage {
         {
           text: 'Agree',
           handler: () => {
-            this.productProvider.deleteProduct(this.product).then((result) => {
+            this.productProvider.deleteProduct(this.product).subscribe((result) => {
               let alert = this.alertCtrl.create({
                 title: 'Success',
                 message: 'The product was successfully deleted',

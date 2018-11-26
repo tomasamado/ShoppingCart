@@ -31,7 +31,7 @@ export class ViewProductPage {
     
   getComments(){
     this.commentProvider.getComments()
-      .then(data => {
+      .subscribe(data => {
         this.comments = data;
         console.log(this.comments);
       });

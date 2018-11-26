@@ -13,10 +13,10 @@ const httpOptions = {
 @Injectable()
 export class CommentProvider {
   token: any;
-  apiUrl = 'http://192.168.43.3:8100/';
+  apiUrl = 'http://192.168.1.8:8100/';
   tokenHeader = {};
 
-  constructor(public http: HttpClient, public storage:Storage) {
+  constructor(public http: HttpClient, public storage: Storage) {
     console.log('Hello CommentProvider Provider');
   }
   setTokenHeader() {
@@ -27,7 +27,7 @@ export class CommentProvider {
           'Authorization': 'Bearer ' + result
         })
       };
-      console.log (this.tokenHeader);
+      console.log(this.tokenHeader);
     });
   }
   getFromStorage() {
@@ -37,12 +37,6 @@ export class CommentProvider {
     return this.storage.clear();
   }
   getComments() {
-    return new Promise(resolve => {
-      this.http.get(this.apiUrl + 'comment', this.tokenHeader).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
+    return this.http.get(this.apiUrl + 'comment', this.tokenHeader)
   }
 }

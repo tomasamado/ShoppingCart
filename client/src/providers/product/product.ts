@@ -16,7 +16,7 @@ const httpOptions = {
 @Injectable()
 export class ProductProvider {
   token: any;
-  apiUrl = 'http://192.168.43.3:8100/';
+  apiUrl = 'http://192.168.1.8:8100/';
   tokenHeader = {};
 
   constructor(public http: HttpClient, private storage: Storage) {
@@ -41,50 +41,23 @@ export class ProductProvider {
     return this.storage.clear();
   }
   getProducts() {
-    return new Promise(resolve => {
-      this.http.get(this.apiUrl + 'product', this.tokenHeader).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
+    return this.http.get(this.apiUrl + 'product', this.tokenHeader)
   }
+  
   getOwnProducts() {
-    return new Promise(resolve => {
-      this.http.get(this.apiUrl + 'ownproduct', this.tokenHeader).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
+    return this.http.get(this.apiUrl + 'ownproduct', this.tokenHeader)
   }
+
   createProduct(data) {
-    return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl + 'product/', JSON.stringify(data), this.tokenHeader)
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
-        });
-    });
+    return this.http.post(this.apiUrl + 'product/', JSON.stringify(data), this.tokenHeader)
   }
+
   updateProduct(data) {
     var updateUrl = this.apiUrl + 'product/' + data.id + '/'
-    return new Promise(resolve => {
-      this.http.put(updateUrl, data, this.tokenHeader).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
+    return this.http.put(updateUrl, data, this.tokenHeader)
   }
+
   deleteProduct(data) {
-    return new Promise(resolve => {
-      this.http.delete(this.apiUrl + 'product/' + data.id + '/', this.tokenHeader).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
+    return this.http.delete(this.apiUrl + 'product/' + data.id + '/', this.tokenHeader)
   }
 }

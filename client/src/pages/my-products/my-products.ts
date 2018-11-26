@@ -39,7 +39,7 @@ export class MyProductsPage {
         {
           text: 'Agree',
           handler: () => {
-            this.productProvider.deleteProduct(this.product).then((result) => {
+            this.productProvider.deleteProduct(this.product).subscribe((result) => {
               let alert = this.alertCtrl.create({
                 title: 'Success',
                 message: 'The product was successfully deleted',
@@ -57,7 +57,7 @@ export class MyProductsPage {
 
   getOwnProduct() {
     this.productProvider.getOwnProducts()
-      .then(data => {
+      .subscribe(data => {
         this.products = data;
         console.log(this.products);
       });

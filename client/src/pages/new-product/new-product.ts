@@ -36,7 +36,7 @@ export class NewProductPage {
     });
   }
   addProduct(){
-      this.productProvider.createProduct(this.product).then((result) => {
+      this.productProvider.createProduct(this.product).subscribe((result) => {
         console.log(result);
       }, (err) => {
         console.log(err);
