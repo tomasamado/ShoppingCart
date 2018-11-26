@@ -3,13 +3,13 @@ page-home {
         background-color: #6083ba;
       }
 
-    ion-searchbar{        
+      ion-searchbar{        
         .searchbar-input-container{            
             .searchbar-input{
-                border-radius: 8px;
+                border-radius: 12px;
             }
         }
-    }
+     }
 
     .home{
         width: 100%;
@@ -18,11 +18,10 @@ page-home {
         margin-top: 10px;
         margin-bottom: 10px;
     }
-    .center {
+        .center {
         display: block;
         margin-left: auto;
         margin-right: auto;
         text-align: center;
     }  
-
 }

@@ -23,7 +23,6 @@ import { CommentProvider } from '../providers/comment/comment';
 import { CartPage } from '../pages/cart/cart';
 import { CommentsComponent } from '../components/comments/comments';
 import { TokenProvider } from '../providers/token/token';
-import { CommentsPage } from '../pages/comments/comments';
 
 
 
@@ -40,8 +39,7 @@ import { CommentsPage } from '../pages/comments/comments';
     MyProductsPage,
     EditProductPage,
     CartPage,
-    CommentsComponent,
-    CommentsPage
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
@@ -62,8 +60,7 @@ import { CommentsPage } from '../pages/comments/comments';
     MyProductsPage,
     EditProductPage,
     CartPage,
-    CommentsComponent,
-    CommentsPage
+    CommentsComponent
   ],
   providers: [
     StatusBar,
