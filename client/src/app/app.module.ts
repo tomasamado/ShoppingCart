@@ -21,6 +21,8 @@ import { EditProductPage } from '../pages/edit-product/edit-product';
 import { ProductProvider } from '../providers/product/product';
 import { CommentProvider } from '../providers/comment/comment';
 import { CartPage } from '../pages/cart/cart';
+import { CommentsComponent } from '../components/comments/comments';
+
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { CartPage } from '../pages/cart/cart';
     NewProductPage,
     MyProductsPage,
     EditProductPage,
-    CartPage
+    CartPage,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { CartPage } from '../pages/cart/cart';
     NewProductPage,
     MyProductsPage,
     EditProductPage,
-    CartPage
+    CartPage,
+    CommentsComponent
   ],
   providers: [
     StatusBar,
@@ -66,6 +70,7 @@ import { CartPage } from '../pages/cart/cart';
     UserProvider,
     ProductProvider,
     CommentProvider
-  ]
+  ],
+  exports:[CommentsComponent]
 })
 export class AppModule {}

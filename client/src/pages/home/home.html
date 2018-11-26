@@ -8,7 +8,7 @@
     <button ion-button icon-only menuToggle left>
       <ion-icon class="menubutton" name="menu"></ion-icon>
     </button>
-    <ion-searchbar placeholder="Filter Items" (ionInput)="filterItems($event)"></ion-searchbar>
+    <ion-searchbar class="search" placeholder="Filter Items" (ionInput)="filterItems($event)"></ion-searchbar>
   </ion-toolbar>
 
 </ion-header>
@@ -45,7 +45,10 @@
 </ion-menu>
 <ion-nav #mycontent [root]="rootPage"></ion-nav>
 
-<ion-content padding>
+<ion-content >
+  <!-- <div class="home">
+    <h1 class="center"> Shop Online</h1>
+  </div> -->
   <ion-list>
     <ion-grid>
       <ion-item *ngFor="let product of filterData" (click)="viewProduct(product)" style="text-overflow: ellipsis">
@@ -55,9 +58,9 @@
           </ion-col>
           <ion-col>
             <button ion-item no-lines>
-              <h2 style="width: 150px; text-overflow: ellipsis">{{product.title}}</h2>
+              <h2 style="width: 150px; text-overflow: ellipsis"> <b>{{product.title}}</b></h2>
               <p style="width: 150px; text-overflow: ellipsis">{{product.description}}</p>
-              <p style="width: 150px; text-overflow: ellipsis"> ${{product.price}} </p>
+              <p style="width: 150px; text-overflow: ellipsis; color:#cc1421"> <b>${{product.price}} </b></p>
             </button>
           </ion-col>
         </ion-row>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
 import { CommentProvider } from '../../providers/comment/comment';
+import { HomePage } from '../home/home';
 
 
 @IonicPage()
@@ -12,7 +13,7 @@ export class ViewProductPage {
   product:any;
   comments:any = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public commentProvider: CommentProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController, public toastCtrl: ToastController, public commentProvider: CommentProvider) {
     this.product = navParams.get('product');
   }
 
