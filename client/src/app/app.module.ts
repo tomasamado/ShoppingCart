@@ -22,6 +22,7 @@ import { ProductProvider } from '../providers/product/product';
 import { CommentProvider } from '../providers/comment/comment';
 import { CartPage } from '../pages/cart/cart';
 import { CommentsComponent } from '../components/comments/comments';
+import { TokenProvider } from '../providers/token/token';
 
 
 
@@ -69,7 +70,8 @@ import { CommentsComponent } from '../components/comments/comments';
     PhotoLibrary,
     UserProvider,
     ProductProvider,
-    CommentProvider
+    CommentProvider,
+    TokenProvider
   ],
   exports:[CommentsComponent]
 })

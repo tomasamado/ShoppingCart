@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { AlertController } from 'ionic-angular';
+import { TokenProvider } from '../token/token';
 
 
 const httpOptions = {
@@ -15,49 +16,29 @@ const httpOptions = {
 
 @Injectable()
 export class ProductProvider {
-  token: any;
-  apiUrl = 'http://192.168.1.8:8100/';
-  tokenHeader = {};
 
-  constructor(public http: HttpClient, private storage: Storage) {
+  constructor(public http: HttpClient, private storage: Storage, private tokenProvider: TokenProvider) {
     console.log('Hello ProductProvider Provider');
   }
 
-  setTokenHeader() {
-    return this.getFromStorage().then((result) => {
-      this.tokenHeader = {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + result
-        })
-      };
-      console.log (this.tokenHeader);
-    });
-  }
-  getFromStorage() {
-    return this.storage.get('JWT');
-  }
-  deleteFromStorage() {
-    return this.storage.clear();
-  }
   getProducts() {
-    return this.http.get(this.apiUrl + 'product', this.tokenHeader)
+    return this.http.get(this.tokenProvider.apiUrl + 'product', this.tokenProvider.tokenHeader)
   }
   
   getOwnProducts() {
-    return this.http.get(this.apiUrl + 'ownproduct', this.tokenHeader)
+    return this.http.get(this.tokenProvider.apiUrl + 'ownproduct', this.tokenProvider.tokenHeader)
   }
 
   createProduct(data) {
-    return this.http.post(this.apiUrl + 'product/', JSON.stringify(data), this.tokenHeader)
+    return this.http.post(this.tokenProvider.apiUrl + 'product/', JSON.stringify(data), this.tokenProvider.tokenHeader)
   }
 
   updateProduct(data) {
-    var updateUrl = this.apiUrl + 'product/' + data.id + '/'
-    return this.http.put(updateUrl, data, this.tokenHeader)
+    var updateUrl = this.tokenProvider.apiUrl + 'product/' + data.id + '/'
+    return this.http.put(updateUrl, data, this.tokenProvider.tokenHeader)
   }
 
   deleteProduct(data) {
-    return this.http.delete(this.apiUrl + 'product/' + data.id + '/', this.tokenHeader)
+    return this.http.delete(this.tokenProvider.apiUrl + 'product/' + data.id + '/', this.tokenProvider.tokenHeader)
   }
 }
