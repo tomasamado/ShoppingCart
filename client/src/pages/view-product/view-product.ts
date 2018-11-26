@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
 import { CommentProvider } from '../../providers/comment/comment';
 import { HomePage } from '../home/home';
+import { CommentsPage } from '../comments/comments';
 
 
 @IonicPage()
@@ -39,6 +40,10 @@ export class ViewProductPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ViewProductPage');
+  }
+
+  comment(){
+    this.navCtrl.push(CommentsPage);
   }
 
 }

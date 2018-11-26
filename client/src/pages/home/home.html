@@ -8,7 +8,7 @@
     <button ion-button icon-only menuToggle left>
       <ion-icon class="menubutton" name="menu"></ion-icon>
     </button>
-    <ion-searchbar class="search" placeholder="Filter Items" (ionInput)="filterItems($event)"></ion-searchbar>
+    <ion-searchbar class="search" placeholder="Search Products" (ionInput)="filterItems($event)"></ion-searchbar>
   </ion-toolbar>
 
 </ion-header>
@@ -16,36 +16,37 @@
 <ion-menu [content]="mycontent" type="overlay">
   <ion-content no-bounce>
     <ion-list>
-      <ion-item>
-        <ion-card (click)="viewProfile()">
-          <ion-item>
-            <ion-icon item-start name="person"></ion-icon>
-            <h2>{{user.first_name}} {{user.last_name}}</h2>
-            <p style="text-overflow:ellipsis;">{{user.email}}</p>
-          </ion-item>
-          <ion-card-content>
-            <p> @{{user.username}}</p>
-          </ion-card-content>
-        </ion-card>
+      <ion-item class="center">
+        <ion-item no-lines class="center" (click)="viewProfile()">
+          <ion-icon item-start name="person"></ion-icon>
+          <h2>{{user.first_name}} {{user.last_name}}</h2>
+        </ion-item>
+        <ion-card-content>
+          <p> @{{user.username}}</p>
+        </ion-card-content>
       </ion-item>
       <ion-item>
+        <ion-icon name="basket"></ion-icon>
         <button ion-button clear (click)="myProducts()"> My products </button>
       </ion-item>
       <ion-item>
-        <button ion-button clear (click)="createProduct()"> Add new product </button>
+        <ion-icon right end name="pricetag"></ion-icon>
+        <button ion-button clear color="black" (click)="createProduct()"> Add new product </button>
       </ion-item>
       <ion-item>
-        <button ion-button icon-end (click)="showConfirm()">
-          Log out <ion-icon name="log-out"></ion-icon>
+        <ion-icon name="log-out"></ion-icon>
+        <button ion-button clear icon-end (click)="showConfirm()">
+          Log out
         </button>
       </ion-item>
       <ion-item menuClose detail-none>Close Menu</ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
+
 <ion-nav #mycontent [root]="rootPage"></ion-nav>
 
-<ion-content >
+<ion-content>
   <!-- <div class="home">
     <h1 class="center"> Shop Online</h1>
   </div> -->
