@@ -19,28 +19,24 @@ export class ViewProductPage {
   }
 
   ionViewDidEnter() {
-    this.getComments();
+    // this.getComments(this.product.id);
   }
 
-  addProduct() {
-    const toast = this.toastCtrl.create({
-      message: 'Product added to cart',
-      duration: 2000
-    });
-    toast.present();
-  }
-
-  comment() {
-    this.navCtrl.push(CommentsPage);
-  }
-
-  getComments() {
-    this.commentProvider.getComments()
-      .subscribe(data => {
-        this.comments = data;
-        console.log(this.comments);
+  addProduct(){
+      const toast = this.toastCtrl.create({
+        message: 'Product added to cart',
+        duration: 2000
       });
-  }
+      toast.present();
+    }
+    
+  // getComments(id){
+  //   this.commentProvider.getComments(id)
+  //     .subscribe(data => {
+  //       this.comments = data;
+  //       console.log(this.comments);
+  //     });
+  // }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ViewProductPage');

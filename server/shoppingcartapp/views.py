@@ -50,6 +50,11 @@ class CommentViewSet(viewsets.ModelViewSet):
     def get_paginated_response(self, data):
         return Response(data)
 
+    def get_queryset(self):
+
+        product = self.request.query_params.get('product_id')
+        return Comment.objects.filter(product_id = product)
+
     def create(self, request, *args, **kwargs):
         nv = Comment(user_id = self.request.user)
         serializer = self.serializer_class(nv, data=request.data)
@@ -81,3 +86,22 @@ class OwnProductViewSet(viewsets.ModelViewSet):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# class ProfilePictureViewSet(viewsets.ModelViewSet):
+#     """
+#     API endpoint that allows users to be viewed or edited.
+#     """
+#     queryset = ProfilePicture.objects.all().order_by('user_id')
+#     serializer_class = ProfilePictureSerializer
+#     pagination_class: None
+
+#     def get_paginated_response(self, data):
+#         return Response(data)
+
+#     def create(self, request, *args, **kwargs):
+#         nv = ProfilePicture(user_id = self.request.user)
+#         serializer = self.serializer_class(nv, data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         else:
+#             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

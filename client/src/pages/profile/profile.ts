@@ -18,6 +18,7 @@ export class ProfilePage {
   user:any={};
   userId = 0;
   newPassword: string;
+  profilePic:any={};
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public userProvider: UserProvider, public camera: Camera) {
     this.userId = navParams.get('userId');
     console.log(this.userId)
@@ -177,20 +178,21 @@ export class ProfilePage {
     this.navCtrl.pop();
   }
 
-  changePicture() {
-    console.log('camera');
-    const options: CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-      saveToPhotoAlbum: false
-    }
+  // changePicture() {
+  //   console.log('camera');
+  //   const options: CameraOptions = {
+  //     destinationType: this.camera.DestinationType.DATA_URL,
+  //     sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+  //     saveToPhotoAlbum: false
+  //   }
 
-    this.camera.getPicture(options).then((imageData) => {
-      let base64Image = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
-    });
-  }
-
+  //   this.camera.getPicture(options).then((imageData) => {
+  //     this.profilePic.image = 'data:image/jpeg;base64,' + imageData;
+  //     console.log('photo from library');
+  //     console.log(this.profilePic.image);
+  //   }, (error) => {
+  //     console.log(error);
+  //   });
+  // }
 
 }
