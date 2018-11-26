@@ -17,26 +17,27 @@
   <ion-content no-bounce>
     <ion-list>
       <ion-item>
-        <ion-card (click)="viewProfile()">
-          <ion-item>
-            <ion-icon item-start name="person"></ion-icon>
-            <h2>{{user.first_name}} {{user.last_name}}</h2>
-            <p style="text-overflow:ellipsis;">{{user.email}}</p>
-          </ion-item>
-          <ion-card-content>
-            <p> @{{user.username}}</p>
-          </ion-card-content>
-        </ion-card>
+        <ion-item no-lines (click)="viewProfile()">
+          <ion-icon item-start name="person"></ion-icon>
+          <h2>{{user.first_name}} {{user.last_name}}</h2>
+          <p style="text-overflow:ellipsis;">{{user.email}}</p>
+        </ion-item>
+        <ion-card-content>
+          <p> @{{user.username}}</p>
+        </ion-card-content>
       </ion-item>
       <ion-item>
+        <ion-icon name="basket"></ion-icon>
         <button ion-button clear (click)="myProducts()"> My products </button>
       </ion-item>
       <ion-item>
+        <ion-icon name="pricetags"></ion-icon>
         <button ion-button clear (click)="createProduct()"> Add new product </button>
       </ion-item>
       <ion-item>
-        <button ion-button icon-end (click)="showConfirm()">
-          Log out <ion-icon name="log-out"></ion-icon>
+        <ion-icon name="log-out"></ion-icon>
+        <button ion-button icon-end clear (click)="showConfirm()">
+          Log out
         </button>
       </ion-item>
       <ion-item menuClose detail-none>Close Menu</ion-item>
@@ -45,7 +46,7 @@
 </ion-menu>
 <ion-nav #mycontent [root]="rootPage"></ion-nav>
 
-<ion-content >
+<ion-content>
   <!-- <div class="home">
     <h1 class="center"> Shop Online</h1>
   </div> -->

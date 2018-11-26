@@ -1,14 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ProductProvider } from '../../providers/product/product';
-import { MyProductsPage } from '../my-products/my-products';
 
-/**
- * Generated class for the EditProductPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -20,6 +13,7 @@ export class EditProductPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public productProvider : ProductProvider, public alertCtrl: AlertController) {
     this.product = navParams.get('product');
   }
+  myInput: string;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditProductPage');
@@ -34,6 +28,8 @@ export class EditProductPage {
     });
     this.navCtrl.pop();
   }
+
+
   deleteProduct(){
     const confirm = this.alertCtrl.create({
       title: 'Are you sure you want to delete this product?',

@@ -7,13 +7,13 @@
 <ion-content padding>
   <ion-card>
     <img [src]="product.image">
-    <ion-card-title padding>
+    <ion-card-title no-padding style="margin-left: 27px; margin-top: 20px">
       {{product.title}}
     </ion-card-title>
     <ion-card-content>
       <ion-list>
-        <ion-item no-lines>
-          <ion-textarea rows=3 placeholder="Description" [(ngModel)]="product.description" name="description" class="input">
+        <ion-item no-lines no-padding>
+          <ion-textarea placeholder="Description" [(ngModel)]="product.description" name="description" class="input">
             {{product.description}}
           </ion-textarea>
         </ion-item>
