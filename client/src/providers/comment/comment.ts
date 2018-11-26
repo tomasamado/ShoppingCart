@@ -17,7 +17,7 @@ export class CommentProvider {
   constructor(public http: HttpClient, public storage: Storage, private tokenProvider: TokenProvider) {
     console.log('Hello CommentProvider Provider');
   }
-  getComments() {
-    return this.http.get(this.tokenProvider.apiUrl + 'comment', this.tokenProvider.tokenHeader)
+  getComments(id) {
+    return this.http.get(this.tokenProvider.apiUrl + 'comment/?product_id=' + id, this.tokenProvider.tokenHeader)
   }
 }

@@ -39,12 +39,7 @@ class UserSerializer(serializers.ModelSerializer):
         instance.save()
         return instance
 
-class ProductSerializer(serializers.ModelSerializer):
 
-
-    class Meta:
-        model = Product
-        fields = ('id', 'image','title','description','price','quantity','created','user_id')
 
 class CommentSerializer(serializers.ModelSerializer):
 
@@ -53,7 +48,19 @@ class CommentSerializer(serializers.ModelSerializer):
         model = Comment
         # parent_id = models.ForeignKey(Comment, on_delete=models.CASCADE, null=True)
         fields = ('id', 'content','user_id','product_id','parent_id')
-        depth = 1
+        # depth = 1
         
-        
+class ProductSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Product
+        fields = ('id', 'image','title','description','price','quantity','created','user_id')
+        # depth = 1
+
+# class ProfilePictureSerializer(serializers.ModelSerializer):
+
+
+#     class Meta:
+#         model = ProfilePicture
+#         fields = ('user_id', 'image')
 

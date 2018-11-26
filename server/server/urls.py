@@ -8,6 +8,7 @@ router.register(r'user', views.UserViewSet)
 router.register(r'product', views.ProductViewSet)
 router.register(r'ownproduct', views.OwnProductViewSet)
 router.register(r'comment', views.CommentViewSet)
+# router.register(r'profilepic', views.ProfilePictureViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
