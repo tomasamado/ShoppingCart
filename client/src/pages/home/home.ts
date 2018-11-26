@@ -17,6 +17,7 @@ import { CartPage } from '../cart/cart';
 export class HomePage {
   user = {};
   userId = 0;
+  filterData: any = [];
   products: any;
   constructor(public navCtrl: NavController, private alertCtrl: AlertController, public navParams: NavParams, public userProvider: UserProvider, public productProvider: ProductProvider, public commentProvider: CommentProvider) {
     this.userId = navParams.get('userId');
@@ -34,7 +35,7 @@ export class HomePage {
   }
 
   viewProduct(product) {
-    this.navCtrl.push(ViewProductPage,{product:product});
+    this.navCtrl.push(ViewProductPage, { product: product });
   }
 
   myProducts() {
@@ -82,10 +83,18 @@ export class HomePage {
     this.productProvider.getProducts()
       .then(data => {
         this.products = data;
+        this.filterData = data;
         console.log(this.products);
       });
   }
-  goToCart(){
+  goToCart() {
     this.navCtrl.push(CartPage);
+  }
+
+  filterItems(ev: any) {
+    let val = ev.target.value;
+    this.filterData = this.products.filter(function (item) {
+      return item.title.toLowerCase().indexOf(val.toLowerCase()) > -1;
+    });
   }
 }
