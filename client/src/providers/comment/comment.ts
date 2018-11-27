@@ -20,4 +20,7 @@ export class CommentProvider {
   getComments(id) {
     return this.http.get(this.tokenProvider.apiUrl + 'comment/?product_id=' + id, this.tokenProvider.tokenHeader)
   }
+  createComment(data) {
+    return this.http.post(this.tokenProvider.apiUrl + 'comment/', JSON.stringify(data), this.tokenProvider.tokenHeader)
+  }
 }

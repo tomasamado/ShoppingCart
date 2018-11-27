@@ -1,13 +1,9 @@
 <ion-list>
-  <ion-item *ngFor="let comment of comments" style="text-overflow: ellipsis; height: 50px;" >
-      <ion-row>
-        <ion-col col-3 no-padding>
-          <img src="../../assets/imgs/user.png" height="60" width="60">
-        </ion-col>
-        <ion-col>
-            <h2 style="width: 150px; text-overflow: ellipsis; margin-top: 5px"> <b>{{comment.content}}</b></h2>
-            <p style="width: 150px; text-overflow: ellipsis; font-size: small">{{comment.user_id.username}}</p>
-        </ion-col>
-      </ion-row>
-    </ion-item>
+  <ion-item *ngFor ="let comment of comments" text-wrap>
+    <ion-avatar item-start>
+      <img src="../../assets/imgs/user.png">
+    </ion-avatar>
+    <p style=" font-size: small">{{comment.user_id.username}} • Date</p>
+    <p style="margin-top: 5px; font-size: 11pt"><b>{{comment.content}} </b></p>
+  </ion-item>
 </ion-list>
