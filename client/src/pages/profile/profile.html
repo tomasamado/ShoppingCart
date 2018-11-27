@@ -4,12 +4,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>6
-  <img src="../../assets/imgs/user.png" style="width:150px; height:150px" class="center">
-  <button ion-button outline small class='center' (click)='addPicture()'>
-    Change picture
-  </button>
-  <br>
+<ion-content padding>
+  <img src="../../assets/imgs/user.png" style="width:150px; height:150px" class="center" (click)='changePicture()'><br>
   <button ion-button outline small class='center' (click)="updateProfile()">
     Save changes
   </button>

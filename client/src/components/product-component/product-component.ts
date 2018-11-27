@@ -12,7 +12,7 @@ export class ProductComponent{
   @Input() user:any;
   filterData: any = [];
 
-    constructor( public navCtrl: NavController, private viewCtrl: ViewController,  public productProvider: ProductProvider) {
+    constructor(public navCtrl: NavController, private viewCtrl: ViewController,  public productProvider: ProductProvider) {
       }
       ngOnInit(){
         

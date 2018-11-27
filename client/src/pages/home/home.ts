@@ -18,6 +18,7 @@ import { LoginPage } from '../login/login';
 })
 
 export class HomePage {
+
   user = {};
   userId = 0;
   filterData: any = [];

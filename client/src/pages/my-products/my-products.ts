@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
 import { EditProductPage } from '../edit-product/edit-product';
 import { ProductProvider } from '../../providers/product/product';
+import { TokenProvider } from '../../providers/token/token';
 
 
 @IonicPage()
@@ -13,7 +14,7 @@ export class MyProductsPage {
   products:any;
   product:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public productProvider: ProductProvider, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public productProvider: ProductProvider, public alertCtrl: AlertController, public tokenProvider: TokenProvider) {
   }
  
   editProduct(product){
@@ -24,6 +25,7 @@ export class MyProductsPage {
     console.log('ionViewDidLoad MyProductsPage');
     this.getOwnProduct();
   }
+
 
   deleteProduct(){
     const confirm = this.alertCtrl.create({

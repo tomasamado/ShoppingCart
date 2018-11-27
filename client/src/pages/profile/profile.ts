@@ -178,21 +178,20 @@ export class ProfilePage {
     this.navCtrl.pop();
   }
 
-  // changePicture() {
-  //   console.log('camera');
-  //   const options: CameraOptions = {
-  //     destinationType: this.camera.DestinationType.DATA_URL,
-  //     sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-  //     saveToPhotoAlbum: false
-  //   }
+  changePicture() {
+    console.log('camera');
+    const options: CameraOptions = {
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      saveToPhotoAlbum: false
+    }
 
-  //   this.camera.getPicture(options).then((imageData) => {
-  //     this.profilePic.image = 'data:image/jpeg;base64,' + imageData;
-  //     console.log('photo from library');
-  //     console.log(this.profilePic.image);
-  //   }, (error) => {
-  //     console.log(error);
-  //   });
-  // }
-
+    this.camera.getPicture(options).then((imageData) => {
+      this.profilePic.image = 'data:image/jpeg;base64,' + imageData;
+      console.log('photo from library');
+      console.log(this.profilePic.image);
+    }, (error) => {
+      console.log(error);
+    });
+  }
 }

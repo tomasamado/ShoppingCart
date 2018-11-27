@@ -10,9 +10,6 @@
     <ion-item no-lines class="center">
       <p><img [src]="product.image" (click)="addPicture()"></p>
     </ion-item>
-    <button ion-button outline small (click)="addPicture()" class="center">
-      Add Picture
-    </button>
     <ion-item>
       <ion-label stacked>Title</ion-label>
       <ion-input type="text" [(ngModel)]="product.title" name="title"></ion-input>
