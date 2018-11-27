@@ -23,4 +23,11 @@ export class CommentProvider {
   createComment(data) {
     return this.http.post(this.tokenProvider.apiUrl + 'comment/', JSON.stringify(data), this.tokenProvider.tokenHeader)
   }
+  deleteComment(data) {
+    return this.http.delete(this.tokenProvider.apiUrl + 'comment/' + data.id + '/', this.tokenProvider.tokenHeader)
+  }
+  updateComment(data) {
+    var updateUrl = this.tokenProvider.apiUrl + 'comment/' + data.id + '/'
+    return this.http.put(updateUrl, data, this.tokenProvider.tokenHeader)
+  }
 }
