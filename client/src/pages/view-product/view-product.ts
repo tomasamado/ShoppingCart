@@ -21,7 +21,7 @@ export class ViewProductPage {
   }
 
   ionViewDidEnter() {
-    // this.getComments(this.product.id);
+    this.getComments(this.product.id);
   }
 
   addProduct(){
@@ -31,14 +31,18 @@ export class ViewProductPage {
       });
       toast.present();
     }
+  
+  viewComments(){
+    this.navCtrl.push(CommentsPage,{comments: this.comments});
+  }
     
-  // getComments(id){
-  //   this.commentProvider.getComments(id)
-  //     .subscribe(data => {
-  //       this.comments = data;
-  //       console.log(this.comments);
-  //     });
-  // }
+  getComments(id){
+    this.commentProvider.getComments(id)
+      .subscribe(data => {
+        this.comments = data;
+        console.log(this.comments);
+      });
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ViewProductPage');

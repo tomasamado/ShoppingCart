@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { ProductComponent } from './product-component/product-component';
-import { CommentsComponent } from './comments/comments';
+import { CommentComponent } from './comments/comment-component';
 @NgModule({
 	declarations: [ProductComponent,
-    CommentsComponent],
+    CommentComponent],
 	imports: [],
 	exports: [ProductComponent,
-    CommentsComponent]
+    CommentComponent]
 })
 export class ComponentsModule {}

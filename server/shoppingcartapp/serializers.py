@@ -9,7 +9,8 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         id = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
         extra_kwargs = {'password': {'write_only': True}}
-        password = serializers.CharField(allow_blank=True, max_length=100, required=False)
+        password = serializers.CharField(allow_blank=False, max_length=100, required=True, write_only=True)
+        # exclude = ('password','last_login','is_staff','is_active','date_joined','groups','user_permissions','is_superuser',)
 
         fields = ('id', 'username','password', 'email', 'first_name', 'last_name')
 
@@ -43,12 +44,13 @@ class UserSerializer(serializers.ModelSerializer):
 
 class CommentSerializer(serializers.ModelSerializer):
 
+    user_id = UserSerializer()
 
     class Meta:
         model = Comment
         # parent_id = models.ForeignKey(Comment, on_delete=models.CASCADE, null=True)
         fields = ('id', 'content','user_id','product_id','parent_id')
-        # depth = 1
+        depth = 1
         
 class ProductSerializer(serializers.ModelSerializer):
     

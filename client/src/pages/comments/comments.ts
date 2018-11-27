@@ -9,11 +9,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'comments.html',
 })
 export class CommentsPage {
-
+  comments: any = {};
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.comments = navParams.get('comments');
   }
 
   ionViewDidLoad() {
+    console.log(this.comments)
     console.log('ionViewDidLoad CommentsPage');
   }
 
