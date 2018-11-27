@@ -8,7 +8,9 @@ import { ViewProductPage } from '../view-product/view-product';
 import { ProductProvider } from '../../providers/product/product';
 import { CommentProvider } from '../../providers/comment/comment';
 import { CartPage } from '../cart/cart';
-import {TokenProvider} from '../../providers/token/token'
+import { TokenProvider } from '../../providers/token/token';
+import { JwtHelper } from 'angular2-jwt';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -20,17 +22,18 @@ export class HomePage {
   userId = 0;
   filterData: any = [];
   products: any;
+  jwtHelper: JwtHelper = new JwtHelper();
+  token:any;
   constructor(public navCtrl: NavController, private alertCtrl: AlertController, public navParams: NavParams, public userProvider: UserProvider, public productProvider: ProductProvider, public commentProvider: CommentProvider, public tokenProvider: TokenProvider) {
-    this.userId = navParams.get('userId');
   }
 
   ionViewDidEnter() {
-    this.getUser();
-    this.getProducts();
+    this.getData();
   }
 
   ionViewDidLoad() {
     this.tokenProvider.setTokenHeader();
+    //this.navCtrl.setRoot(HomePage);
   }
 
   viewProduct(product) {
@@ -48,6 +51,17 @@ export class HomePage {
   viewProfile() {
     this.navCtrl.push(ProfilePage, { userId: this.userId });
   }
+  
+  getData(){
+    this.tokenProvider.getFromStorage().then((result) => {
+      this.token = result;
+      var decoded = this.jwtHelper.decodeToken(result);
+      this.userId = decoded.user_id;
+      this.getUser();
+      this.getProducts();
+      console.log (this.userId);
+    });
+  }
 
   showConfirm() {
     const confirm = this.alertCtrl.create({
@@ -62,7 +76,8 @@ export class HomePage {
           text: 'Yes',
           handler: () => {
             this.tokenProvider.deleteFromStorage().then((result) => {
-              this.navCtrl.pop();
+              this.navCtrl.setRoot(LoginPage);
+              this.navCtrl.pop;
             });
           }
         }
