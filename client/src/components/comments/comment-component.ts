@@ -12,6 +12,7 @@ import { HomePage } from '../../pages/home/home';
 export class CommentComponent {
   @Input() comments:any = {};
   text: string;
+  delete: boolean = true;
 
   constructor(public navCtrl: NavController, private viewCtrl: ViewController,  public commentProvider: CommentProvider, public modalCtrl: ModalController) {
     console.log('Hello CommentsComponent Component');
