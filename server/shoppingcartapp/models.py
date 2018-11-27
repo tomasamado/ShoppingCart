@@ -28,7 +28,7 @@ class Comment(models.Model):
     # parent_id = models.BigIntegerField(null=True)
     # product_id = models.BigIntegerField(null=True)
     parent_id = models.ForeignKey('self', on_delete=models.CASCADE, null=True)
-    product_id = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
+    product_id = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, blank=False)
 
 
 # class ProfilePicture(models.Model):

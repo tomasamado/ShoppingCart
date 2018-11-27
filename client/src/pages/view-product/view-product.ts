@@ -33,7 +33,7 @@ export class ViewProductPage {
     }
   
   viewComments(){
-    this.navCtrl.push(CommentsPage,{comments: this.comments});
+    this.navCtrl.push(CommentsPage,{comments: this.comments, productId: this.product.id});
   }
     
   getComments(id){

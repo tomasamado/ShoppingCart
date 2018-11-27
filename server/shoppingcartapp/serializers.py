@@ -42,16 +42,21 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 
-class CommentSerializer(serializers.ModelSerializer):
+class CommentSerializerRead(serializers.ModelSerializer):
 
-    user_id = UserSerializer()
+    class Meta:
+        model = Comment
+        # parent_id = models.ForeignKey(Comment, on_delete=models.CASCADE, null=True)
+        fields = ('id', 'content','product_id','parent_id', 'user_id')
+        depth = 1
+
+class CommentSerializerWrite(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
         # parent_id = models.ForeignKey(Comment, on_delete=models.CASCADE, null=True)
         fields = ('id', 'content','user_id','product_id','parent_id')
-        depth = 1
-        
+
 class ProductSerializer(serializers.ModelSerializer):
     
     class Meta:

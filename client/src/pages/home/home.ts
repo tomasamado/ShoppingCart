@@ -18,6 +18,7 @@ import { LoginPage } from '../login/login';
 })
 
 export class HomePage {
+
   user = {};
   userId = 0;
   filterData: any = [];
@@ -34,10 +35,6 @@ export class HomePage {
   ionViewDidLoad() {
     this.tokenProvider.setTokenHeader();
     //this.navCtrl.setRoot(HomePage);
-  }
-
-  viewProduct(product) {
-    this.navCtrl.push(ViewProductPage, { product: product });
   }
 
   myProducts() {

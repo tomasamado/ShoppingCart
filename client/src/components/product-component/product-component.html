@@ -1,6 +1,5 @@
 <ion-list>
     <ion-grid>
-      <!-- <component *ngIf="data"></component> -->
       <ion-item *ngFor="let product of products" (click)="viewProduct(product)" style="text-overflow: ellipsis">
         <ion-row>
           <ion-col col-3 no-padding>
@@ -9,7 +8,7 @@
           <ion-col>
             <button ion-item no-lines>
               <h2 style="width: 150px; text-overflow: ellipsis"> <b>{{product.title}}</b></h2>
-              <p style="width: 150px; text-overflow: ellipsis">{{product.description}}</p>
+              <p style="width: 180px; text-overflow: ellipsis; ">{{product.description}}</p>
               <p style="width: 150px; text-overflow: ellipsis; color:#cc1421"> <b>${{product.price}} </b></p>
             </button>
           </ion-col>

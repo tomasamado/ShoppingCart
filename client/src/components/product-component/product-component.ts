@@ -9,15 +9,16 @@ import { ProductProvider } from '../../providers/product/product';
 })
 export class ProductComponent{
   @Input() products:any;
+  @Input() user:any;
   filterData: any = [];
 
-    constructor( public navCtrl: NavController, private viewCtrl: ViewController,  public productProvider: ProductProvider) {
+    constructor(public navCtrl: NavController, private viewCtrl: ViewController,  public productProvider: ProductProvider) {
       }
       ngOnInit(){
         
       }
       viewProduct(product){
-        this.navCtrl.push(ViewProductPage,{ product: product });
+        this.navCtrl.push(ViewProductPage,{ product: product, user : this.user });
       }
       filterItems(ev: any) {
         let val = ev.target.value;
