@@ -36,10 +36,6 @@ export class HomePage {
     //this.navCtrl.setRoot(HomePage);
   }
 
-  viewProduct(product) {
-    this.navCtrl.push(ViewProductPage, { product: product });
-  }
-
   myProducts() {
     this.navCtrl.push(MyProductsPage);
   }
