@@ -28,6 +28,7 @@ export class CommentsPage {
     this.commentProvider.createComment(this.comment).subscribe((result) => {
       console.log(result);
       this.getComments(this.productId);
+      this.comment.content='';
     }, (err) => {
       console.log(err);
     });

@@ -1,4 +1,3 @@
-
 <ion-header>
   <ion-navbar>
     <ion-title>cart</ion-title>
@@ -9,11 +8,27 @@
 <ion-content padding>
   <product-component></product-component>
 
-  <ion-list style="margin-top: 100%">
-      <ion-item left>
-          <p>
-            Total:<b>$Price</b> 
-          </p>
-        </ion-item>
-  </ion-list>
+  <ion-card style="margin-top: 100%">
+    <ion-card-header style="margin-left:10px ">
+      Total: <b> $Price </b>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <button ion-item>
+          List of products
+          <button ion-button clear item-end icon-only>
+            <ion-icon name="remove"></ion-icon>
+          </button>
+        </button>
+      </ion-list>
+      <ion-list>
+        <ion-buttons end>
+          <button ion-button clear small color="dark">
+            Checkout
+            <ion-icon name="pricetag"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NavController, ViewController, ModalController, AlertController } from 'ionic-angular';
+import { NavController, ViewController, ModalController, AlertController, NavParams } from 'ionic-angular';
 import { ViewProductPage } from '../../pages/view-product/view-product';
 import { CommentProvider } from '../../providers/comment/comment';
 import { HomePage } from '../../pages/home/home';
@@ -13,10 +13,12 @@ export class CommentComponent {
   @Input() comments: any = {};
   text: string;
   delete: boolean = true;
+  comment: any;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private viewCtrl: ViewController, public commentProvider: CommentProvider, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private viewCtrl: ViewController, public commentProvider: CommentProvider, public modalCtrl: ModalController, public navParams: NavParams) {
     console.log('Hello CommentsComponent Component');
     this.text = 'Hello World';
+    this.comment = navParams.get('comment');
     // console.log(this.comments);
   }
 
