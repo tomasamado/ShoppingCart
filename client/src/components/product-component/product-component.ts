@@ -11,7 +11,7 @@ export class ProductComponent{
   @Input() products:any;
   filterData: any = [];
 
-    constructor( public navCtrl: NavController, private viewCtrl: ViewController,  public productProvider: ProductProvider) {
+    constructor(public navCtrl: NavController, private viewCtrl: ViewController,  public productProvider: ProductProvider) {
       }
       ngOnInit(){
         

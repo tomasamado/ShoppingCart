@@ -21,5 +21,10 @@ page-view-product {
                 border-bottom-color: transparent !important;
                 box-shadow: none !important;
               }
-
+              .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }    
 }
