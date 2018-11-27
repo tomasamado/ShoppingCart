@@ -21,7 +21,7 @@ import { EditProductPage } from '../pages/edit-product/edit-product';
 import { ProductProvider } from '../providers/product/product';
 import { CommentProvider } from '../providers/comment/comment';
 import { CartPage } from '../pages/cart/cart';
-import { CommentsComponent } from '../components/comments/comments';
+import { CommentComponent } from '../components/comments/comment-component';
 import { TokenProvider } from '../providers/token/token';
 import { CommentsPage } from '../pages/comments/comments';
 
@@ -39,7 +39,7 @@ import { CommentsPage } from '../pages/comments/comments';
     MyProductsPage,
     EditProductPage,
     CartPage,
-    CommentsComponent,
+    CommentComponent,
     CommentsPage
 
   ],
@@ -62,7 +62,7 @@ import { CommentsPage } from '../pages/comments/comments';
     MyProductsPage,
     EditProductPage,
     CartPage,
-    CommentsComponent,
+    CommentComponent,
     CommentsPage
   ],
   providers: [
@@ -76,6 +76,6 @@ import { CommentsPage } from '../pages/comments/comments';
     CommentProvider,
     TokenProvider
   ],
-  exports:[CommentsComponent]
+  exports:[CommentComponent]
 })
 export class AppModule {}

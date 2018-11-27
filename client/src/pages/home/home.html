@@ -46,13 +46,10 @@
 </ion-menu>
 <ion-nav #mycontent [root]="rootPage"></ion-nav>
 
-<ion-content>
-  <!-- <div class="home">
-    <h1 class="center"> Shop Online</h1>
-  </div> -->
+<!-- <ion-content>
   <ion-list>
     <ion-grid>
-      <!-- <component *ngIf="data"></component> -->
+      <component *ngIf="data"></component>
       <ion-item *ngFor="let product of filterData" (click)="viewProduct(product)" style="text-overflow: ellipsis">
         <ion-row>
           <ion-col col-3 no-padding>
@@ -69,4 +66,8 @@
       </ion-item>
     </ion-grid>
   </ion-list>
+</ion-content> -->
+<ion-content>
+  <product-component [products]="products">
+  </product-component>
 </ion-content>
