@@ -11,11 +11,9 @@ import { HomePage } from '../../pages/home/home';
 })
 export class CommentsComponent {
 
-  text: string;
 
   constructor(public navCtrl: NavController, private viewCtrl: ViewController,  public commentProvider: CommentProvider, public modalCtrl: ModalController) {
-    console.log('Hello CommentsComponent Component');
-    this.text = 'Hello World';
+
   }
   openModal() {
 

@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar no-border-top>
     <ion-buttons end>
-      <button ion-button icon-only (click)="goToCart()">
+      <button ion-button icon-only solic clear color="dark" (click)="goToCart()">
         <ion-icon name="cart"></ion-icon>
       </button>
     </ion-buttons>
-    <button ion-button icon-only menuToggle left>
+    <button ion-button icon-only menuToggle left solic clear color="dark">
       <ion-icon class="menubutton" name="menu"></ion-icon>
     </button>
     <ion-searchbar class="search" placeholder="Filter Items" (ionInput)="filterItems($event)"></ion-searchbar>
@@ -20,23 +20,20 @@
         <ion-item no-lines (click)="viewProfile()">
           <ion-icon item-start name="person"></ion-icon>
           <h2>{{user.first_name}} {{user.last_name}}</h2>
-          <p style="text-overflow:ellipsis;">{{user.email}}</p>
+          <p style="text-overflow:ellipsis;">@{{user.username}}</p>
         </ion-item>
-        <ion-card-content>
-          <p> @{{user.username}}</p>
-        </ion-card-content>
       </ion-item>
       <ion-item>
         <ion-icon name="basket"></ion-icon>
-        <button ion-button clear (click)="myProducts()"> My products </button>
+        <button color="dark" ion-button clear (click)="myProducts()"> My products </button>
       </ion-item>
       <ion-item>
         <ion-icon name="pricetags"></ion-icon>
-        <button ion-button clear (click)="createProduct()"> Add new product </button>
+        <button color="dark" ion-button clear (click)="createProduct()"> Add new product </button>
       </ion-item>
       <ion-item>
         <ion-icon name="log-out"></ion-icon>
-        <button ion-button icon-end clear (click)="showConfirm()">
+        <button color="dark" ion-button icon-end clear (click)="showConfirm()">
           Log out
         </button>
       </ion-item>
@@ -47,9 +44,6 @@
 <ion-nav #mycontent [root]="rootPage"></ion-nav>
 
 <ion-content>
-  <!-- <div class="home">
-    <h1 class="center"> Shop Online</h1>
-  </div> -->
   <ion-list>
     <ion-grid>
       <!-- <component *ngIf="data"></component> -->

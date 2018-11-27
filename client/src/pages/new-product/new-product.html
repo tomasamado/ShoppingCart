@@ -8,8 +8,11 @@
 
   <ion-list>
     <ion-item no-lines class="center">
-      <p><img [src]="product.image"></p>
+      <p><img [src]="product.image" (click)="addPicture()"></p>
     </ion-item>
+    <button ion-button outline small (click)="addPicture()" class="center">
+      Add Picture
+    </button>
     <ion-item>
       <ion-label stacked>Title</ion-label>
       <ion-input type="text" [(ngModel)]="product.title" name="title"></ion-input>
@@ -27,18 +30,9 @@
       <ion-input type="number" [(ngModel)]="product.price" value=""></ion-input>
     </ion-item>
   </ion-list>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-6 style="text-align: center">
-        <button ion-button outline small (click)="addPicture()">
-          Add Picture
-        </button>
-      </ion-col>
-      <ion-col col-4>
-        <button ion-button outline small (click)="addProduct()">
-          Add product
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-item>
+    <button ion-button outline small block (click)="addProduct()">
+      Add product
+    </button>
+  </ion-item>
 </ion-content>

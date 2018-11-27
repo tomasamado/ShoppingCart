@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController, ModalController }
 import { CommentProvider } from '../../providers/comment/comment';
 import { HomePage } from '../home/home';
 import { CommentsPage } from '../comments/comments';
+import {UserProvider} from '../../providers/user/user'
 
 
 @IonicPage()
@@ -14,8 +15,9 @@ export class ViewProductPage {
   product: any;
   comments: any = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public toastCtrl: ToastController, public commentProvider: CommentProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public userProvider: UserProvider , public toastCtrl: ToastController, public commentProvider: CommentProvider) {
     this.product = navParams.get('product');
+
   }
 
   ionViewDidEnter() {
