@@ -37,7 +37,7 @@ class ProductViewSet(viewsets.ModelViewSet):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class CommentViewSet(viewsets.ModelViewSet):
+class CommentByProductViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
@@ -62,21 +62,42 @@ class CommentViewSet(viewsets.ModelViewSet):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class ReplyViewSet(viewsets.ModelViewSet):
+
+class CommentViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
     queryset = Comment.objects.all().order_by('-created')
-    serializer_class = CommentSerializerWrite
+    serializer_class = CommentSerializerRead
     pagination_class: None
 
     def get_paginated_response(self, data):
         return Response(data)
 
-    def get_queryset(self):
 
-        comment = self.request.query_params.get('parent_id')
-        return Comment.objects.filter(parent_id = comment)          
+    def create(self, request, *args, **kwargs):
+        nv = Comment(user_id = self.request.user)
+        serializer = CommentSerializerWrite(nv, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# class ReplyViewSet(viewsets.ModelViewSet):
+#     """
+#     API endpoint that allows users to be viewed or edited.
+#     """
+#     queryset = Comment.objects.all().order_by('-created')
+#     serializer_class = CommentSerializerWrite
+#     pagination_class: None
+
+#     def get_paginated_response(self, data):
+#         return Response(data)
+
+#     def get_queryset(self):
+
+#         comment = self.request.query_params.get('parent_id')
+#         return Comment.objects.filter(parent_id = comment)          
 
 class OwnProductViewSet(viewsets.ModelViewSet):
     """

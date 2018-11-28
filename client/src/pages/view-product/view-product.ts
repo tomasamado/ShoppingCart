@@ -14,9 +14,11 @@ import {UserProvider} from '../../providers/user/user'
 export class ViewProductPage {
   product: any;
   comments: any = {};
+  user:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public userProvider: UserProvider , public toastCtrl: ToastController, public commentProvider: CommentProvider) {
     this.product = navParams.get('product');
+    this.user= navParams.get('user');
 
   }
 
@@ -33,7 +35,7 @@ export class ViewProductPage {
     }
   
   viewComments(){
-    this.navCtrl.push(CommentsPage,{comments: this.comments, productId: this.product.id});
+    this.navCtrl.push(CommentsPage,{comments: this.comments, product: this.product, user: this.user});
   }
     
   getComments(id){
