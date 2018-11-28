@@ -18,7 +18,6 @@ const httpOptions = {
 export class ProductProvider {
 
   constructor(public http: HttpClient, private storage: Storage, private tokenProvider: TokenProvider) {
-    console.log('Hello ProductProvider Provider');
   }
 
   getProducts() {

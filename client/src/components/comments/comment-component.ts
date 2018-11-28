@@ -25,6 +25,12 @@ export class CommentComponent {
       title: 'Do you want to delete this comment?',
       buttons: [
         {
+          text: 'No',
+          handler: () => {
+            console.log('No');
+          }
+        },
+        {
           text: 'Yes',
           handler: () => {
             this.commentProvider.deleteComment(comment).subscribe((result) => {
@@ -37,12 +43,6 @@ export class CommentComponent {
             });
             this.navCtrl.pop();
             console.log('Yes');
-          }
-        },
-        {
-          text: 'No',
-          handler: () => {
-            console.log('No');
           }
         }
       ]
@@ -74,6 +74,8 @@ export class CommentComponent {
             comment.edited = true;
             comment.content = data.content;
             this.commentProvider.updateComment(comment).subscribe((result) => {
+              this.comment= result;
+              comment.updated = this.comment.updated;
             }, (err) => {
               console.log(err);
             });

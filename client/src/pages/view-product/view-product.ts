@@ -42,12 +42,7 @@ export class ViewProductPage {
     this.commentProvider.getComments(id)
       .subscribe(data => {
         this.comments = data;
-        console.log(this.comments);
       });
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ViewProductPage');
   }
 
 }

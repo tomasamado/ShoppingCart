@@ -13,6 +13,7 @@ export class CommentsPage {
   comments: any = {};
   product : any;
   user:any;
+  parentComments: any=[];
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public commentProvider: CommentProvider) {
     this.comments = navParams.get('comments');
@@ -23,13 +24,9 @@ export class CommentsPage {
 
   ionViewDidLoad() {
     this.getComments(this.product.id);
-    console.log(this.comments)
-    console.log(this.comment.content);
-    
   }
   addComment(){
     this.commentProvider.createComment(this.comment).subscribe((result) => {
-      console.log(result);
       this.getComments(this.product.id);
       this.comment.content='';
     }, (err) => {
@@ -42,7 +39,6 @@ getComments(id){
     .subscribe(data => {
       this.comments = data;
       this.comment.product_id=this.product.id;
-      console.log(this.comments);
     });
 }
 

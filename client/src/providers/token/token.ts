@@ -15,7 +15,6 @@ export class TokenProvider {
   tokenHeader = {};
 
   constructor(public http: HttpClient, private storage: Storage) {
-    console.log('Hello TokenProvider Provider');
   }
 
   setTokenHeader() {

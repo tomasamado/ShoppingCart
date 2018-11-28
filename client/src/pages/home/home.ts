@@ -24,7 +24,7 @@ export class HomePage {
   filterData: any = [];
   products: any;
   jwtHelper: JwtHelper = new JwtHelper();
-  token:any;
+  token: any;
   constructor(public navCtrl: NavController, private alertCtrl: AlertController, public navParams: NavParams, public userProvider: UserProvider, public productProvider: ProductProvider, public commentProvider: CommentProvider, public tokenProvider: TokenProvider) {
   }
 
@@ -34,7 +34,6 @@ export class HomePage {
 
   ionViewDidLoad() {
     this.tokenProvider.setTokenHeader();
-    //this.navCtrl.setRoot(HomePage);
   }
 
   myProducts() {
@@ -48,15 +47,14 @@ export class HomePage {
   viewProfile() {
     this.navCtrl.push(ProfilePage, { userId: this.userId });
   }
-  
-  getData(){
+
+  getData() {
     this.tokenProvider.getFromStorage().then((result) => {
       this.token = result;
       var decoded = this.jwtHelper.decodeToken(result);
       this.userId = decoded.user_id;
       this.getUser();
       this.getProducts();
-      console.log (this.userId);
     });
   }
 
@@ -87,18 +85,17 @@ export class HomePage {
     this.userProvider.getUser(this.userId)
       .subscribe(data => {
         this.user = data;
-        console.log(this.user);
       });
   }
+  
   getProducts() {
     this.productProvider.getProducts()
       .subscribe(data => {
         this.products = data;
         this.filterData = data;
-        console.log(this.products);
       });
   }
-  
+
   goToCart() {
     this.navCtrl.push(CartPage);
   }

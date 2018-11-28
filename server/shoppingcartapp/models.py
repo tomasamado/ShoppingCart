@@ -29,6 +29,7 @@ class Comment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     edited = models.BooleanField(default = False)
+    parent_id = models.ForeignKey("self", on_delete=models.CASCADE, null=True)
 
 
 # class ProfilePicture(models.Model):
