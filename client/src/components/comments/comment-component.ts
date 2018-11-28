@@ -20,7 +20,7 @@ export class CommentComponent {
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, private viewCtrl: ViewController, public commentProvider: CommentProvider, public modalCtrl: ModalController, public navParams: NavParams) {
     console.log('Hello CommentsComponent Component');
     this.text = 'Hello World';
-    this.comment = navParams.get('comment');
+    // this.comment = navParams.get('comment');
     // console.log(this.comments);
   }
   deleteComment(comment) {
@@ -52,6 +52,10 @@ export class CommentComponent {
     });
     confirm.present();
   }
+  editComment(){
+    
+  }
+  
 }
 
 
