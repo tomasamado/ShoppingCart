@@ -19,9 +19,10 @@ export class CommentsPage {
     this.product = navParams.get('product');
     this.user = navParams.get('user');
   }
-  comment: any = {content:"", product_id:0}
+  comment: any = {content:"", product_id : 0}
 
   ionViewDidLoad() {
+    this.getComments(this.product.id);
     console.log(this.comments)
     console.log(this.comment.content);
     
@@ -29,23 +30,18 @@ export class CommentsPage {
   addComment(){
     this.commentProvider.createComment(this.comment).subscribe((result) => {
       console.log(result);
-      this.getComments(this.productId);
+      this.getComments(this.product.id);
       this.comment.content='';
     }, (err) => {
       console.log(err);
     });
 }
-// getreplies(){
-//   for(let comment of this.comments) {
-    
-//     ;
-//   }
-// }
+
 getComments(id){
   this.commentProvider.getComments(id)
     .subscribe(data => {
       this.comments = data;
-      this.comment.product_id = this.product.id
+      this.comment.product_id=this.product.id;
       console.log(this.comments);
     });
 }
