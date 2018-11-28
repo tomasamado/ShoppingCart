@@ -39,6 +39,9 @@ getComments(id){
     .subscribe(data => {
       this.comments = data;
       this.comment.product_id=this.product.id;
+      const result = this.comments.filter(data => (!data.parent_id));
+      console.log(result);
+      console.log(this.comments)
     });
 }
 
