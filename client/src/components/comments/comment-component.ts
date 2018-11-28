@@ -4,7 +4,6 @@ import { ViewProductPage } from '../../pages/view-product/view-product';
 import { CommentProvider } from '../../providers/comment/comment';
 import { HomePage } from '../../pages/home/home';
 
-
 @Component({
   selector: 'comment-component',
   templateUrl: 'comment-component.html'
@@ -13,27 +12,21 @@ export class CommentComponent {
   @Input() comments: any = {};
   @Input() user: any;
   @Input() product: any;
+  @Input() allComments: any ={};
+
   text: string;
   delete: boolean = true;
   comment: any;
   edited: boolean = false;
   view: boolean = false;
   shownGroup = null;
+  filteredComments: any ={};
+  replies: any =[];
+  reply: any ={product_id : 0};
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, private viewCtrl: ViewController, public commentProvider: CommentProvider, public modalCtrl: ModalController, public navParams: NavParams) {
 
   }
-
-  toggleGroup(group) {
-    if (this.isGroupShown(group)) {
-      this.shownGroup = null;
-    } else {
-      this.shownGroup = group;
-    }
-  };
-  isGroupShown(group) {
-    return this.shownGroup === group;
-  };
 
   deleteComment(comment) {
     const confirm = this.alertCtrl.create({
@@ -63,6 +56,12 @@ export class CommentComponent {
       ]
     });
     confirm.present();
+  }
+
+  getReplies(comment){
+    this.replies = this.allComments.filter(data => ( data.parent_id == comment.id ));
+    console.log(this.replies)
+    console.log(this.allComments)
   }
 
   updateComment(comment) {
@@ -100,10 +99,50 @@ export class CommentComponent {
     });
     prompt.present();
   }
+  addReply(comment){
+    
+    const prompt = this.alertCtrl.create({
+      title: 'Reply to this comment',
+      inputs: [
+        {
+          type: 'textarea',
+          name: 'content',
+          placeholder: 'Reply',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            this.reply.parent_id=comment.id;
+            this.commentProvider.createComment(this.reply).subscribe((result) => {
+              this.allComments.push(this.reply)
 
-  viewReplies() {
-    this.view = true;
+            }, (err) => {
+              console.log(err);
+            });
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
+  toggleGroup(group) {
+    if (this.isGroupShown(group)) {
+      this.shownGroup = null;
+    } else {
+      this.shownGroup = group;
+    }
+  };
+  isGroupShown(group) {
+    return this.shownGroup === group;
+  };
 
 }
 

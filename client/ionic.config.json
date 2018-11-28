@@ -1,0 +1,13 @@
+{
+  "name": "client",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/",
+      "proxyUrl": "http://192.168.1.8:8000/"
+    }
+  ]
+}
