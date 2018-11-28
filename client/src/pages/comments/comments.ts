@@ -11,18 +11,20 @@ import { CommentProvider } from '../../providers/comment/comment';
 })
 export class CommentsPage {
   comments: any = {};
-  productId : any;
+  product : any;
+  user:any;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public commentProvider: CommentProvider) {
     this.comments = navParams.get('comments');
-    this.productId = navParams.get('productId');
+    this.product = navParams.get('product');
+    this.user = navParams.get('user');
   }
   comment: any = {content:"", product_id:0}
 
   ionViewDidLoad() {
     console.log(this.comments)
     console.log(this.comment.content);
-    this.comment.product_id = this.productId
+    
   }
   addComment(){
     this.commentProvider.createComment(this.comment).subscribe((result) => {
@@ -43,6 +45,7 @@ getComments(id){
   this.commentProvider.getComments(id)
     .subscribe(data => {
       this.comments = data;
+      this.comment.product_id = this.product.id
       console.log(this.comments);
     });
 }

@@ -7,8 +7,9 @@ router = routers.DefaultRouter()
 router.register(r'user', views.UserViewSet)
 router.register(r'product', views.ProductViewSet)
 router.register(r'ownproduct', views.OwnProductViewSet)
-router.register(r'comment', views.CommentViewSet)
-router.register(r'reply', views.ReplyViewSet)
+router.register(r'comment', views.CommentByProductViewSet)
+router.register(r'commentId', views.CommentViewSet)
+# router.register(r'reply', views.ReplyViewSet)
 # router.register(r'profilepic', views.ProfilePictureViewSet)
 
 urlpatterns = [

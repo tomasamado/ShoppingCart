@@ -11,6 +11,8 @@ import { HomePage } from '../../pages/home/home';
 })
 export class CommentComponent {
   @Input() comments: any = {};
+  @Input() user: any;
+  @Input() product:any;
   text: string;
   delete: boolean = true;
   comment: any;
@@ -21,14 +23,22 @@ export class CommentComponent {
     this.comment = navParams.get('comment');
     // console.log(this.comments);
   }
-
-  deleteComment() {
+  deleteComment(comment) {
     const confirm = this.alertCtrl.create({
       title: 'Do you want to delete this comment?',
       buttons: [
         {
           text: 'Yes',
           handler: () => {
+            this.commentProvider.deleteComment(comment).subscribe((result) => {
+              let alert = this.alertCtrl.create({
+                title: 'Success',
+                message: 'The product was successfully deleted',
+                buttons: ['Dismiss']
+              });
+              alert.present();
+            });
+            this.navCtrl.pop();
             console.log('Yes');
           }
         },
