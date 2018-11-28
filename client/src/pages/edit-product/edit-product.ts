@@ -12,10 +12,11 @@ import { CommentProvider } from '../../providers/comment/comment';
 })
 export class EditProductPage {
   product: any;
-
+  user: any;
   comments: any = {};
   constructor(public navCtrl: NavController, public navParams: NavParams, public productProvider: ProductProvider, public alertCtrl: AlertController, public commentProvider: CommentProvider) {
     this.product = navParams.get('product');
+    this.user= navParams.get('user');
   }
   myInput: string;
 
@@ -44,7 +45,7 @@ export class EditProductPage {
     this.navCtrl.pop();
   }
   viewComments() {
-    this.navCtrl.push(CommentsPage, { comments: this.comments });
+    this.navCtrl.push(CommentsPage,{comments: this.comments, product: this.product, user: this.user});
   }
 
   deleteProduct() {

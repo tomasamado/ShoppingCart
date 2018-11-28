@@ -38,7 +38,7 @@ export class HomePage {
   }
 
   myProducts() {
-    this.navCtrl.push(MyProductsPage);
+    this.navCtrl.push(MyProductsPage, { user: this.user });
   }
 
   createProduct() {

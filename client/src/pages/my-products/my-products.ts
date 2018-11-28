@@ -13,12 +13,15 @@ import { TokenProvider } from '../../providers/token/token';
 export class MyProductsPage {
   products:any;
   product:any;
+  user:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public productProvider: ProductProvider, public alertCtrl: AlertController, public tokenProvider: TokenProvider) {
+    this.product = navParams.get('product');
+    this.user= navParams.get('user');
   }
  
   editProduct(product){
-    this.navCtrl.push(EditProductPage, {product: product});
+    this.navCtrl.push(EditProductPage, {product: product,user: this.user});
   }
 
   ionViewDidEnter() {
