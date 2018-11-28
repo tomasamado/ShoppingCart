@@ -41,7 +41,7 @@ getComments(id){
       this.allComments = data;
       this.comments = this.allComments.filter(data => (!data.parent_id));
       this.comment.product_id=this.product.id;
-      // console.log(this.allComments)
+      console.log(this.allComments)
     });
 }
 

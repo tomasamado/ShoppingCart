@@ -4,7 +4,6 @@ import { ViewProductPage } from '../../pages/view-product/view-product';
 import { CommentProvider } from '../../providers/comment/comment';
 import { HomePage } from '../../pages/home/home';
 
-
 @Component({
   selector: 'comment-component',
   templateUrl: 'comment-component.html'
@@ -22,7 +21,8 @@ export class CommentComponent {
   view: boolean = false;
   shownGroup = null;
   filteredComments: any ={};
-  replies: any ={};
+  replies: any =[];
+  reply: any ={product_id : 0};
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, private viewCtrl: ViewController, public commentProvider: CommentProvider, public modalCtrl: ModalController, public navParams: NavParams) {
 
@@ -59,7 +59,6 @@ export class CommentComponent {
   }
 
   getReplies(comment){
-    var cid = comment.id;
     this.replies = this.allComments.filter(data => ( data.parent_id == comment.id ));
     console.log(this.replies)
     console.log(this.allComments)
@@ -100,7 +99,40 @@ export class CommentComponent {
     });
     prompt.present();
   }
+  addReply(comment){
+    
+    const prompt = this.alertCtrl.create({
+      title: 'Reply to this comment',
+      inputs: [
+        {
+          type: 'textarea',
+          name: 'content',
+          placeholder: 'Reply',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            this.reply.parent_id=comment.id;
+            this.commentProvider.createComment(this.reply).subscribe((result) => {
+              this.allComments.push(this.reply)
 
+            }, (err) => {
+              console.log(err);
+            });
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
   toggleGroup(group) {
     if (this.isGroupShown(group)) {
       this.shownGroup = null;
