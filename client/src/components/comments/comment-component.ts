@@ -13,27 +13,20 @@ export class CommentComponent {
   @Input() comments: any = {};
   @Input() user: any;
   @Input() product: any;
+  @Input() allComments: any ={};
+
   text: string;
   delete: boolean = true;
   comment: any;
   edited: boolean = false;
   view: boolean = false;
   shownGroup = null;
+  filteredComments: any ={};
+  replies: any ={};
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, private viewCtrl: ViewController, public commentProvider: CommentProvider, public modalCtrl: ModalController, public navParams: NavParams) {
 
   }
-
-  toggleGroup(group) {
-    if (this.isGroupShown(group)) {
-      this.shownGroup = null;
-    } else {
-      this.shownGroup = group;
-    }
-  };
-  isGroupShown(group) {
-    return this.shownGroup === group;
-  };
 
   deleteComment(comment) {
     const confirm = this.alertCtrl.create({
@@ -63,6 +56,13 @@ export class CommentComponent {
       ]
     });
     confirm.present();
+  }
+
+  getReplies(comment){
+    var cid = comment.id;
+    this.replies = this.allComments.filter(data => ( data.parent_id == comment.id ));
+    console.log(this.replies)
+    console.log(this.allComments)
   }
 
   updateComment(comment) {
@@ -101,9 +101,16 @@ export class CommentComponent {
     prompt.present();
   }
 
-  viewReplies() {
-    this.view = true;
-  }
+  toggleGroup(group) {
+    if (this.isGroupShown(group)) {
+      this.shownGroup = null;
+    } else {
+      this.shownGroup = group;
+    }
+  };
+  isGroupShown(group) {
+    return this.shownGroup === group;
+  };
 
 }
 

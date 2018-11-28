@@ -1,13 +1,15 @@
 <ion-list no-padding>
-  <ion-item *ngFor="let comment of comments let i=index" (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}" text-wrap no-padding>
+  <ion-item *ngFor="let comment of comments let i=index" (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}"
+    text-wrap no-padding>
     <ion-item no-lines>
       <ion-avatar item-start>
         <img src="../../assets/imgs/user.png">
       </ion-avatar>
       <p style=" font-size: small">{{comment.user_id.username}} • <span style=" font-size: 9pt" *ngIf="comment.edited; else createdComment">Edited
           at {{comment.updated?.substring(0, 10)}} {{comment.updated?.substring(11, 16)}} </span>
-        <ng-template #createdComment> <span style=" font-size: 9pt" >Created at {{comment.created?.substring(0, 10)}} {{comment.created?.substring(11,
-          16)}} </span></ng-template>
+        <ng-template #createdComment> <span style=" font-size: 9pt">Created at {{comment.created?.substring(0, 10)}}
+            {{comment.created?.substring(11,
+            16)}} </span></ng-template>
       </p>
       <p style="margin-top: 5px; font-size: 11pt"><b>{{comment.content}} </b></p>
       <button *ngIf="(user.id == comment.user_id.id)" ion-button clear item-end icon-only color="dark" small (click)="updateComment(comment)">
@@ -19,14 +21,14 @@
       </button>
       <ion-row>
         <ion-buttons start>
-        <button ion-button clear small color="dark">
-          Reply
-        </button>
-        <button ion-button clear small item-right color="dark">
+          <button ion-button clear small color="dark">
+            Reply
+          </button>
+          <button ion-button clear small item-right color="dark" (click)="getReplies(comment)">
             <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
-          Replies
-        </button>
-      </ion-buttons>
+            Replies
+          </button>
+        </ion-buttons>
       </ion-row>
     </ion-item>
     <!-- Replies: -->
@@ -50,14 +52,14 @@
 
 
   <ion-list>
-      <ion-item *ngFor="let d of diseases; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
-        <h3>
-          {{d.title}}
-          <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
-        </h3>
-        <div *ngIf="isGroupShown(i)">{{d.description}}</div>
-      </ion-item>
-    </ion-list>
+    <ion-item *ngFor="let d of diseases; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+      <h3>
+        {{d.title}}
+        <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+      </h3>
+      <div *ngIf="isGroupShown(i)">{{d.description}}</div>
+    </ion-item>
+  </ion-list>
 
 
 
