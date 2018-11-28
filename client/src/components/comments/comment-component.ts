@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NavController, ViewController, ModalController, AlertController, NavParams } from 'ionic-angular';
+import { NavController, ViewController, ModalController, AlertController, NavParams, Content } from 'ionic-angular';
 import { ViewProductPage } from '../../pages/view-product/view-product';
 import { CommentProvider } from '../../providers/comment/comment';
 import { HomePage } from '../../pages/home/home';
@@ -71,6 +71,7 @@ export class CommentComponent {
         {
           text: 'Save',
           handler: data => {
+            comment.edited = true;
             comment.content = data.content;
             this.commentProvider.updateComment(comment).subscribe((result) => {
             }, (err) => {

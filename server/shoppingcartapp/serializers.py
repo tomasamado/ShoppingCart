@@ -10,8 +10,6 @@ class UserSerializer(serializers.ModelSerializer):
         id = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
         extra_kwargs = {'password': {'write_only': True}}
         password = serializers.CharField(allow_blank=False, max_length=100, required=True, write_only=True)
-        # exclude = ('password','last_login','is_staff','is_active','date_joined','groups','user_permissions','is_superuser',)
-
         fields = ('id', 'username','password', 'email', 'first_name', 'last_name')
 
     def create(self, validated_data):
@@ -46,23 +44,20 @@ class CommentSerializerRead(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        # parent_id = models.ForeignKey(Comment, on_delete=models.CASCADE, null=True)
-        fields = ('id', 'content','product_id','parent_id', 'user_id')
+        fields = ('id', 'content','product_id','user_id','created','updated','edited')
         depth = 1
 
 class CommentSerializerWrite(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        # parent_id = models.ForeignKey(Comment, on_delete=models.CASCADE, null=True)
-        fields = ('id', 'content','user_id','product_id','parent_id')
+        fields = ('id', 'content','user_id','product_id','created','updated','edited')
 
 class ProductSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Product
         fields = ('id', 'image','title','description','price','quantity','created','user_id')
-        # depth = 1
 
 # class ProfilePictureSerializer(serializers.ModelSerializer):
 
