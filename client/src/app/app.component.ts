@@ -21,7 +21,6 @@ export class MyApp {
       this.tokenProvider.getFromStorage().then((result) => {
         this.currentUser = result; 
         this.rootPage = this.currentUser ? HomePage : LoginPage;
-        console.log(this.currentUser)
       });
     });
   }

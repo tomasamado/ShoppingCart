@@ -18,7 +18,6 @@ const httpOptions = {
 export class UserProvider {
 
   constructor(public http: HttpClient, private storage: Storage, private tokenProvider: TokenProvider) {
-    console.log('Hello UserProvider Provider');
   }
 
   login(data) {
