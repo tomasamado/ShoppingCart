@@ -36,11 +36,6 @@ export class CommentsPage {
       console.log(err);
     });
 }
-getReplies(){
-  this.comments.forEach(element => {
-    console.log(element.id);
-  });
-}
 
 getComments(id){
   this.commentProvider.getComments(id)
