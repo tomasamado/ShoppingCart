@@ -12,14 +12,29 @@ import { HomePage } from '../../pages/home/home';
 export class CommentComponent {
   @Input() comments: any = {};
   @Input() user: any;
-  @Input() product:any;
+  @Input() product: any;
   text: string;
   delete: boolean = true;
   comment: any;
   edited: boolean = false;
+  view: boolean = false;
+  shownGroup = null;
+
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, private viewCtrl: ViewController, public commentProvider: CommentProvider, public modalCtrl: ModalController, public navParams: NavParams) {
 
   }
+
+  toggleGroup(group) {
+    if (this.isGroupShown(group)) {
+      this.shownGroup = null;
+    } else {
+      this.shownGroup = group;
+    }
+  };
+  isGroupShown(group) {
+    return this.shownGroup === group;
+  };
+
   deleteComment(comment) {
     const confirm = this.alertCtrl.create({
       title: 'Do you want to delete this comment?',
@@ -83,6 +98,11 @@ export class CommentComponent {
     });
     prompt.present();
   }
+
+  viewReplies() {
+    this.view = true;
+  }
+
 }
 
 
