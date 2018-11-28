@@ -98,6 +98,7 @@ export class HomePage {
         console.log(this.products);
       });
   }
+  
   goToCart() {
     this.navCtrl.push(CartPage);
   }
