@@ -3,7 +3,7 @@
     <ion-avatar item-start>
       <img src="../../assets/imgs/user.png">
     </ion-avatar>
-    <p style=" font-size: small">{{comment.user_id.username}} • 5 minutes ago</p>
+    <p style=" font-size: small">{{comment.user_id.username}} • 5 minutes ago <span *ngIf="edited">• Edited </span></p>
     <p style="margin-top: 5px; font-size: 11pt"><b>{{comment.content}} </b></p>
     <button *ngIf="(user.id == comment.user_id.id)"ion-button clear item-end icon-only color="dark" (click) ="updateComment(comment)"><ion-icon name="create"></ion-icon></button>
     <button *ngIf="(user.id == comment.user_id.id)||(user.id==product.user_id)"ion-button clear item-end icon-only color="dark" (click)="deleteComment(comment)" > <ion-icon name="trash"></ion-icon></button>
