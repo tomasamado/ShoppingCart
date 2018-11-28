@@ -16,7 +16,7 @@ export class CommentComponent {
   text: string;
   delete: boolean = true;
   comment: any;
-
+  edited: boolean = false;
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, private viewCtrl: ViewController, public commentProvider: CommentProvider, public modalCtrl: ModalController, public navParams: NavParams) {
 
   }
@@ -30,7 +30,7 @@ export class CommentComponent {
             this.commentProvider.deleteComment(comment).subscribe((result) => {
               let alert = this.alertCtrl.create({
                 title: 'Success',
-                message: 'The product was successfully deleted',
+                message: 'The comment was successfully deleted',
                 buttons: ['Dismiss']
               });
               alert.present();
