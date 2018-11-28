@@ -33,7 +33,7 @@
     </ion-card-content>
     <ion-row>
       <ion-col>
-          <button ion-button icon-start outline small (click)="viewComments()" class="center">
+          <button ion-button icon-start style="background-color: #6083ba" small (click)="viewComments()" class="center">
           <ion-icon name="text"></ion-icon>
           <div>{{comments.length}} Comments</div>
         </button>
@@ -51,16 +51,15 @@
   <ion-grid>
     <ion-row>
       <ion-col col-6 style="text-align: center">
-        <button ion-button outline small (click)="updateProduct()">
+        <button ion-button style="background-color: #6083ba" small (click)="updateProduct()">
           Save changes
         </button>
       </ion-col>
       <ion-col col-4>
-        <button ion-button outline small color='danger' (click)="deleteProduct()">
+        <button ion-button style="background-color: danger" small color='danger' (click)="deleteProduct()">
           Delete product
         </button>
       </ion-col>
     </ion-row>
   </ion-grid>
-
 </ion-content>
