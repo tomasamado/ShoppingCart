@@ -42,6 +42,34 @@ export class CommentComponent {
     });
     confirm.present();
   }
+
+  updateComment() {
+    const prompt = this.alertCtrl.create({
+      title: 'Update comment',
+      inputs: [
+        {
+          type: 'textarea',
+          name: 'updatedComment',
+          placeholder: 'Update comment...'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Save');
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
 }
 
 
