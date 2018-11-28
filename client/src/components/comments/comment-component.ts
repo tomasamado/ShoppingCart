@@ -18,10 +18,7 @@ export class CommentComponent {
   comment: any;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, private viewCtrl: ViewController, public commentProvider: CommentProvider, public modalCtrl: ModalController, public navParams: NavParams) {
-    console.log('Hello CommentsComponent Component');
-    this.text = 'Hello World';
-    // this.comment = navParams.get('comment');
-    // console.log(this.comments);
+
   }
   deleteComment(comment) {
     const confirm = this.alertCtrl.create({
@@ -53,14 +50,15 @@ export class CommentComponent {
     confirm.present();
   }
 
-  updateComment() {
+  updateComment(comment) {
     const prompt = this.alertCtrl.create({
       title: 'Update comment',
       inputs: [
         {
           type: 'textarea',
-          name: 'updatedComment',
-          placeholder: 'Update comment...'
+          name: 'content',
+          placeholder: 'Edit your comment',
+          value: comment.content
         },
       ],
       buttons: [
@@ -73,7 +71,11 @@ export class CommentComponent {
         {
           text: 'Save',
           handler: data => {
-            console.log('Save');
+            comment.content = data.content;
+            this.commentProvider.updateComment(comment).subscribe((result) => {
+            }, (err) => {
+              console.log(err);
+            });
           }
         }
       ]

@@ -74,7 +74,6 @@ class CommentViewSet(viewsets.ModelViewSet):
     def get_paginated_response(self, data):
         return Response(data)
 
-
     def create(self, request, *args, **kwargs):
         nv = Comment(user_id = self.request.user)
         serializer = CommentSerializerWrite(nv, data=request.data)
@@ -83,6 +82,7 @@ class CommentViewSet(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            
 # class ReplyViewSet(viewsets.ModelViewSet):
 #     """
 #     API endpoint that allows users to be viewed or edited.

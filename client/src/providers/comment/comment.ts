@@ -27,7 +27,7 @@ export class CommentProvider {
     return this.http.delete(this.tokenProvider.apiUrl + 'commentId/' + data.id + '/', this.tokenProvider.tokenHeader)
   }
   updateComment(data) {
-    var updateUrl = this.tokenProvider.apiUrl + 'comment/' + data.id + '/'
+    var updateUrl = this.tokenProvider.apiUrl + 'commentId/' + data.id + '/'
     return this.http.put(updateUrl, data, this.tokenProvider.tokenHeader)
   }
 }
