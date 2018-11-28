@@ -15,7 +15,6 @@ class Product(models.Model):
     quantity = models.PositiveIntegerField(default=1)
     created = models.DateTimeField(auto_now_add=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    # image = Base64ImageField() 
 
     class Meta:
         ordering = ('created',)
@@ -25,10 +24,10 @@ class Comment(models.Model):
     content = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    # parent_id = models.BigIntegerField(null=True)
-    # product_id = models.BigIntegerField(null=True)
-    parent_id = models.ForeignKey('self', on_delete=models.CASCADE, null=True)
     product_id = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, blank=False)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    edited = models.BooleanField(default = False)
 
 
 # class ProfilePicture(models.Model):
