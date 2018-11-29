@@ -64,7 +64,6 @@ export class MyProductsPage {
     this.productProvider.getOwnProducts()
       .subscribe(data => {
         this.products = data;
-        console.log(this.products);
       });
   }
 }

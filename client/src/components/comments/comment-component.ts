@@ -42,6 +42,10 @@ export class CommentComponent {
           text: 'Yes',
           handler: () => {
             this.commentProvider.deleteComment(comment).subscribe((result) => {
+              this.allComments.forEach(element => {
+                if (element.parent_id == comment.id)
+                this.commentProvider.deleteComment(element).subscribe((result) => {});
+              });
               let alert = this.alertCtrl.create({
                 title: 'Success',
                 message: 'The comment was successfully deleted',
@@ -60,8 +64,6 @@ export class CommentComponent {
 
   getReplies(comment){
     this.replies = this.allComments.filter(data => ( data.parent_id == comment.id ));
-    console.log(this.replies)
-    console.log(this.allComments)
   }
 
   updateComment(comment) {
@@ -120,10 +122,8 @@ export class CommentComponent {
         {
           text: 'Save',
           handler: data => {
-            this.reply.parent_id=comment.id;
             this.commentProvider.createComment(this.reply).subscribe((result) => {
-              this.allComments.push(this.reply)
-
+            this.allComments.push(result);
             }, (err) => {
               console.log(err);
             });

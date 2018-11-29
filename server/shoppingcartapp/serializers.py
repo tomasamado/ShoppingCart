@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from shoppingcartapp.models import Product, Comment
+from shoppingcartapp.models import Product, Comment, Cart
 from drf_extra_fields.fields import Base64ImageField
 from django.db import models
 
@@ -58,6 +58,12 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ('id', 'image','title','description','price','quantity','created','user_id')
+    
+class CartSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Cart
+        fields = ('id', 'quantity','title','price','user_id','created')
 
 # class ProfilePictureSerializer(serializers.ModelSerializer):
 
