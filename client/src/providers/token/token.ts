@@ -25,7 +25,6 @@ export class TokenProvider {
           'Authorization': 'Bearer ' + result
         })
       };
-      console.log (this.tokenHeader);
     });
   }
 

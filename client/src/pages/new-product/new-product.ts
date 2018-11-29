@@ -30,14 +30,12 @@ export class NewProductPage {
     this.camera.getPicture(options).then((imageData) => {
       this.product.image = 'data:image/jpeg;base64,' + imageData;
       console.log('photo from library');
-      console.log(this.product.image);
     }, (error) => {
       console.log(error);
     });
   }
   addProduct(){
       this.productProvider.createProduct(this.product).subscribe((result) => {
-        console.log(result);
       }, (err) => {
         console.log(err);
       });

@@ -26,6 +26,7 @@ export class HomePage {
   jwtHelper: JwtHelper = new JwtHelper();
   token: any;
   constructor(public navCtrl: NavController, private alertCtrl: AlertController, public navParams: NavParams, public userProvider: UserProvider, public productProvider: ProductProvider, public commentProvider: CommentProvider, public tokenProvider: TokenProvider) {
+  
   }
 
   ionViewDidEnter() {
@@ -97,7 +98,7 @@ export class HomePage {
   }
 
   goToCart() {
-    this.navCtrl.push(CartPage);
+    this.navCtrl.push(CartPage, { products: this.products });
   }
 
   filterItems(ev: any) {
