@@ -7,10 +7,11 @@ import { UserProvider } from '../../providers/user/user';
 import { ViewProductPage } from '../view-product/view-product';
 import { ProductProvider } from '../../providers/product/product';
 import { CommentProvider } from '../../providers/comment/comment';
-import { CartPage } from '../cart/cart';
+import { CartPage } from '../cart-page/cart-page';
 import { TokenProvider } from '../../providers/token/token';
 import { JwtHelper } from 'angular2-jwt';
 import { LoginPage } from '../login/login';
+import { CartProvider } from '../../providers/cart/cart';
 
 @Component({
   selector: 'page-home',
@@ -25,7 +26,9 @@ export class HomePage {
   products: any;
   jwtHelper: JwtHelper = new JwtHelper();
   token: any;
-  constructor(public navCtrl: NavController, private alertCtrl: AlertController, public navParams: NavParams, public userProvider: UserProvider, public productProvider: ProductProvider, public commentProvider: CommentProvider, public tokenProvider: TokenProvider) {
+  constructor(public navCtrl: NavController, private alertCtrl: AlertController, public navParams: NavParams, 
+    public userProvider: UserProvider, public productProvider: ProductProvider, public commentProvider: CommentProvider, 
+    public tokenProvider: TokenProvider, public cartProvider: CartProvider) {
   
   }
 
@@ -100,6 +103,8 @@ export class HomePage {
   goToCart() {
     this.navCtrl.push(CartPage, { products: this.products });
   }
+
+
 
   filterItems(ev: any) {
     let val = ev.target.value;
