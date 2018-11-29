@@ -25,20 +25,15 @@ export class EditProductPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EditProductPage');
-    console.log(this.product);
   }
   getComments(id) {
     this.commentProvider.getComments(id)
       .subscribe(data => {
         this.comments = data;
-        console.log(this.comments);
       });
   }
   updateProduct() {
-    console.log(this.product);
     this.productProvider.updateProduct(this.product).subscribe((result) => {
-      console.log(result);
     }, (err) => {
       console.log(err);
     });

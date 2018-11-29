@@ -9,7 +9,7 @@ router.register(r'product', views.ProductViewSet)
 router.register(r'ownproduct', views.OwnProductViewSet)
 router.register(r'comment', views.CommentByProductViewSet)
 router.register(r'commentId', views.CommentViewSet)
-# router.register(r'reply', views.ReplyViewSet)
+router.register(r'cart', views.CartViewSet)
 # router.register(r'profilepic', views.ProfilePictureViewSet)
 
 urlpatterns = [

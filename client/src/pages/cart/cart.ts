@@ -13,13 +13,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-cart',
   templateUrl: 'cart.html',
 })
+
 export class CartPage {
+  products: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.products = navParams.get('product');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CartPage');
   }
 
 }
