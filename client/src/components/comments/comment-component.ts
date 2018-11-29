@@ -133,6 +133,7 @@ export class CommentComponent {
     });
     prompt.present();
   }
+  
   toggleGroup(group) {
     if (this.isGroupShown(group)) {
       this.shownGroup = null;
