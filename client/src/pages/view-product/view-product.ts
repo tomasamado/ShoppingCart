@@ -15,7 +15,7 @@ export class ViewProductPage {
   product: any;
   comments: any = {};
   user:any;
-
+  cars:any=['BMW','Ferari','Audi','Bugati', 'a', 'aaaaa', 'a', 'a','a','a', 'a','a'];
   constructor(public navCtrl: NavController, public alertCtrl: AlertController , public navParams: NavParams, public modalCtrl: ModalController, public userProvider: UserProvider , public toastCtrl: ToastController, public commentProvider: CommentProvider) {
     this.product = navParams.get('product');
     this.user= navParams.get('user');

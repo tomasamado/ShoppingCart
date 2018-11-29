@@ -14,6 +14,12 @@
       <p style="margin-top: 10px">Price: ${{product.price}}</p>
       <p style="margin-top: 10px"><b>{{product.quantity}}</b> Available</p>
     </ion-card-content>
+    <ion-item>
+      <ion-label>Quantity</ion-label>
+      <ion-select [(ngModel)]="car">
+        <ion-option  *ngFor="let car of cars" [value]="car" >{{car}}</ion-option>
+      </ion-select>
+    </ion-item>
     <ion-row>
       <ion-col>
         <ion-buttons class="center">
@@ -35,7 +41,7 @@
         </ion-note>
       </ion-col>
     </ion-row>
+
   </ion-card>
-  <ion-item>
-    </ion-item>
+
 </ion-content>
