@@ -20,10 +20,11 @@ import { IonicStorageModule } from '@ionic/storage';
 import { EditProductPage } from '../pages/edit-product/edit-product';
 import { ProductProvider } from '../providers/product/product';
 import { CommentProvider } from '../providers/comment/comment';
-import { CartPage } from '../pages/cart/cart';
+import { CartPage } from '../pages/cart-page/cart-page';
 import { CommentComponent } from '../components/comments/comment-component';
 import { TokenProvider } from '../providers/token/token';
 import { CommentsPage } from '../pages/comments/comments';
+import { CartProvider } from '../providers/cart/cart';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { CommentsPage } from '../pages/comments/comments';
     UserProvider,
     ProductProvider,
     CommentProvider,
-    TokenProvider
+    TokenProvider,
+    CartProvider
   ],
   exports:[CommentComponent]
 })
