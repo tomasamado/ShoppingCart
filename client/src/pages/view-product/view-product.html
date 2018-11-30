@@ -12,7 +12,9 @@
     <ion-card-content>
       <p>{{product.description}}</p>
       <p style="margin-top: 10px">Price: ${{product.price}}</p>
-      <p style="margin-top: 10px"><b>{{product.quantity}}</b> Available</p>
+      <p style="margin-top: 10px" *ngIf="product.quantity==0; else available">Out of Stock</p>
+      <ng-template #available ><p style="margin-top: 10px"><b>{{product.quantity}}</b> Available</p></ng-template>
+        
     </ion-card-content>
     <ion-row>
       <ion-col>
