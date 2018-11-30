@@ -27,7 +27,7 @@ export class CartPage {
 
   totalCost(data){
     data.forEach(element => {
-      this.cost = (+this.cost + +element.price*element.quantity).toFixed(2)
+      this.cost = (+this.cost + +element.price*element.quantity)
     });
   }
 
@@ -41,6 +41,18 @@ export class CartPage {
       });
   }
 
+  checkout(){
+    this.cart.forEach(element => {
+      this.cartProvider.deleteCart(element).subscribe((result) => {
+        let alert = this.alertCtrl.create({
+          title: 'Success',
+          message: 'The product was successfully deleted',
+          buttons: ['Dismiss']
+        });
+        alert.present();
+      });
+    });
+  }
   deleteCartProduct(product){
     const confirm = this.alertCtrl.create({
       title: 'Do you want to delete this product from your cart?',
