@@ -4,7 +4,6 @@ import { ProfilePage } from '../profile/profile';
 import { NewProductPage } from '../new-product/new-product';
 import { MyProductsPage } from '../my-products/my-products';
 import { UserProvider } from '../../providers/user/user';
-import { ViewProductPage } from '../view-product/view-product';
 import { ProductProvider } from '../../providers/product/product';
 import { CommentProvider } from '../../providers/comment/comment';
 import { CartPage } from '../cart-page/cart-page';
@@ -103,8 +102,6 @@ export class HomePage {
   goToCart() {
     this.navCtrl.push(CartPage, { products: this.products });
   }
-
-
 
   filterItems(ev: any) {
     let val = ev.target.value;

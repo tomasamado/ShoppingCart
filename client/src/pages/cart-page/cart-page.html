@@ -7,17 +7,16 @@
 
 <ion-content padding>
   <product-component></product-component>
-
   <ion-card>
     <ion-card-header style="margin-left:10px ">
       Total: <b> $Price </b>
     </ion-card-header>
     <ion-card-content>
       <ion-list>
-        <ion-item>
-          List of products
-          <button ion-button clear item-end icon-only color="dark">
-            <ion-icon name="remove"></ion-icon>
+        <ion-item *ngFor="let product of cart">
+          {{product.title}} ({{product.quantity}})
+          <button ion-button clear small item-end icon-only color="dark" (click)="deleteCartProduct(product)">
+            <ion-icon name="trash"></ion-icon>
           </button>
         </ion-item>
       </ion-list>

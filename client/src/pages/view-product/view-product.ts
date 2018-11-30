@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, ModalController, AlertController } from 'ionic-angular';
 import { CommentProvider } from '../../providers/comment/comment';
-import { HomePage } from '../home/home';
 import { CommentsPage } from '../comments/comments';
 import { UserProvider } from '../../providers/user/user'
 import { CartProvider } from '../../providers/cart/cart';
@@ -15,11 +14,11 @@ import { CartProvider } from '../../providers/cart/cart';
 export class ViewProductPage {
   product: any;
   comments: any = {};
-  user:any;
-  cars:any=['BMW','Ferari','Audi','Bugati', 'a', 'aaaaa', 'a', 'a','a','a', 'a','a'];
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController , public navParams: NavParams, public modalCtrl: ModalController, public userProvider: UserProvider , public toastCtrl: ToastController, public commentProvider: CommentProvider) {
-  cartProduct:any ={};
   user: any;
+  cars: any = ['BMW', 'Ferari', 'Audi', 'Bugati', 'a', 'aaaaa', 'a', 'a', 'a', 'a', 'a', 'a'];
+  cartProduct: any = {};
+
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public modalCtrl: ModalController, public userProvider: UserProvider, public toastCtrl: ToastController, public commentProvider: CommentProvider, public cartProvider: CartProvider) {
     this.product = navParams.get('product');
     this.user = navParams.get('user');
 
@@ -31,9 +30,7 @@ export class ViewProductPage {
   }
 
 
-
   addProduct() {
-
     const prompt = this.alertCtrl.create({
       title: 'Reply to this comment',
       inputs: [
@@ -88,5 +85,5 @@ export class ViewProductPage {
         this.comments = data;
       });
   }
-
+  
 }
