@@ -17,7 +17,6 @@ export class ViewProductPage {
   product: any;
   comments: any = {};
   user: any;
-  cars: any = ['BMW', 'Ferari', 'Audi', 'Bugati', 'a', 'aaaaa', 'a', 'a', 'a', 'a', 'a', 'a'];
   cartProduct: any = {};
   cart: any = {};
   existsInCart: boolean;
@@ -109,7 +108,7 @@ export class ViewProductPage {
             toast.present();
             }else{
               let alert = this.alertCtrl.create({
-                title: 'You numbnut',
+                title: 'Error',
                 subTitle: 'There arent that many products available',
                 buttons: ['Dismiss']
               });
