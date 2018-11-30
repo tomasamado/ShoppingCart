@@ -40,6 +40,7 @@ class Cart(models.Model):
     quantity = models.PositiveIntegerField(default=1)
     created = models.DateTimeField(auto_now_add=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    product_id = models.IntegerField(null=True)
 
 
 # class ProfilePicture(models.Model):
