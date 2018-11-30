@@ -14,7 +14,7 @@ export class CartPage {
   cart: any;
   product: any;
   cartProduct: any = {};
-
+  cost=0;
   constructor(public navCtrl: NavController,public alertCtrl: AlertController , public navParams: NavParams, public cartProvider: CartProvider) {
     this.products = navParams.get('product');
     this.cart = navParams.get('cart');
@@ -22,13 +22,21 @@ export class CartPage {
 
 
   ionViewDidLoad() {
-    this.getCart()
+    this.getCart();
+  }
+
+  totalCost(data){
+    data.forEach(element => {
+      this.cost = (+this.cost + +element.price*element.quantity).toFixed(2)
+    });
   }
 
   getCart() {
     this.cartProvider.getCart()
       .subscribe(data => {
         this.cart = data;
+        this.totalCost(data);
+        console.log(this.cost);
         console.log(data)
       });
   }
