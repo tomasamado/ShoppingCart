@@ -29,8 +29,6 @@ export class ViewProductPage {
 
   ionViewDidEnter() {
     this.getComments(this.product.id);
-    console.log(this.product.quantity);
-    console.log("product initialy is "+ this.product.id)
     this.cartProduct = JSON.parse(JSON.stringify(this.product));
 
   }
@@ -56,7 +54,6 @@ export class ViewProductPage {
         {
           text: 'Add',
           handler: data => {
-            this.cartProduct
             this.existsInCart = false;
             if (data.quantity<=this.product.quantity){
             this.cartProvider.getCart().subscribe(datas => {
@@ -67,21 +64,14 @@ export class ViewProductPage {
                   this.existsInCart = true;
                   this.cartProduct.id = element.id;
                   console.log(element)
-                  console.log("quintiturs before the sumers " + this.cartProduct.quantity)
                   this.cartProduct.quantity = (+element.quantity + +data.quantity);
-                  console.log("ye biu")
                   }
                 });
                 console.log(this.existsInCart);
 
-                console.log("the carts produict cuqntity is now " + this.cartProduct.quantity)
-
                 this.cartProduct.user_id = this.user.id;
 
                 this.product.quantity = (this.product.quantity - data.quantity);
-
-                console.log("this produs quaintut is now " + this.product.quantity);
-                console.log("THIS PR" + this.product.id)
 
                 if (this.existsInCart){
 

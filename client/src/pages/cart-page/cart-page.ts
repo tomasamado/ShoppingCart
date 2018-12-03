@@ -14,7 +14,7 @@ export class CartPage {
   cart: any;
   product: any;
   cartProduct: any = {};
-
+  cost=0;
   constructor(public navCtrl: NavController,public alertCtrl: AlertController , public navParams: NavParams, public cartProvider: CartProvider) {
     this.products = navParams.get('product');
     this.cart = navParams.get('cart');
@@ -22,17 +22,44 @@ export class CartPage {
 
 
   ionViewDidLoad() {
-    this.getCart()
+    this.getCart();
+  }
+
+  totalCost(data){
+    if(data.length>0){
+    data.forEach(element => {
+      this.cost = (+this.cost + +element.price*element.quantity)
+    });
+  }
+  else{this.cost=0;}
   }
 
   getCart() {
     this.cartProvider.getCart()
       .subscribe(data => {
         this.cart = data;
+        this.totalCost(data);
+        console.log(this.cost);
         console.log(data)
       });
   }
 
+  checkout(){
+    this.cart.forEach(element => {
+      this.cartProvider.deleteCart(element).subscribe((result) => {
+        
+      });
+      
+    });
+    this.getCart();
+    this.cost=0;
+    let alert = this.alertCtrl.create({
+      title: 'Success',
+      message: 'Checkout Successful!',
+      buttons: ['Dismiss']
+    });
+    alert.present();
+  }
   deleteCartProduct(product){
     const confirm = this.alertCtrl.create({
       title: 'Do you want to delete this product from your cart?',
@@ -48,15 +75,16 @@ export class CartPage {
           text: 'Yes',
           handler: () => {
             this.cartProvider.deleteCart(product).subscribe((result) => {
+              this.getCart();
               let alert = this.alertCtrl.create({
                 title: 'Success',
                 message: 'The product was successfully deleted',
                 buttons: ['Dismiss']
               });
               alert.present();
+              
             });
-            this.navCtrl.pop();
-            this.navCtrl.push(CartPage);
+
           }
         
         }
