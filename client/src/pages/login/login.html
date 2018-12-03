@@ -1,22 +1,21 @@
 <ion-content padding>
-    <img src="../../assets/imgs/lite-cart logo.png" class="center" width="150px" height="150px" style="margin-top: 20px; margin-bottom: 20px">
+    <img src="../../assets/imgs/logo.png" class="center" width="150px" height="150px" style="margin-top: 20px; margin-bottom: 20px">
   <div [formGroup]="someForm">
-      <ion-item no-lines>
+      <ion-item no-lines class="item-content">
           <ion-title class="title">lite-cart</ion-title>
       </ion-item>
     <ion-list style="margin-top: 50px;">
+      <ion-item class="item-content">
+        <ion-label floating>Username</ion-label>
+        <ion-input formControlName="input1" type="text" [(ngModel)]="userLogin.username" name="username" class="input"></ion-input>>
+      </ion-item>
+      <ion-item class="item-content">
+        <ion-label floating>Password</ion-label>
+        <ion-input formControlName="input2" type="password" [(ngModel)]="userLogin.password" name="password" class="input"></ion-input>
+      </ion-item>
+    </ion-list>
 
-    <ion-item class="item-content">
-      <ion-label floating>Username</ion-label>
-      <ion-input type="text"   [(ngModel)]="userLogin.username" name="username" class="input"></ion-input>>
-    </ion-item>
-    <ion-item class="item-content">
-      <ion-label floating>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="userLogin.password" name="password" class="input"></ion-input>
-  </ion-list>
-    </ion-item>
-
-    <button ion-button block class="loginbutton" (click)="login()" padding style="background-color: #6083ba" [disabled]="!someForm.valid">Login</button>
-    <button ion-button block clear (click)="goRegister()" padding style="color: #6083ba">Create Account</button>
+    <button ion-button block class="loginbutton" (click)="login()" padding style="background-color: #D15D63" [disabled]="!someForm.valid">Login</button>
+    <button ion-button block clear (click)="goRegister()" padding style="color: #D15D63">Create Account</button>
   </div>
 </ion-content>
