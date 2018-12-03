@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar no-border-top>
     <ion-buttons end>
-      <button ion-button icon-only solic clear color="dark" (click)="goToCart()">
+      <button ion-button icon-only clear color="dark" (click)="goToCart()">
         <ion-icon name="cart"></ion-icon>
       </button>
     </ion-buttons>
@@ -10,12 +10,17 @@
     </button>
     <ion-searchbar class="search" placeholder="Filter Items" (ionInput)="filterItems($event)"></ion-searchbar>
   </ion-toolbar>
-
 </ion-header>
 
 <ion-menu [content]="mycontent" type="overlay">
   <ion-content no-bounce>
-    <ion-list>
+    <ion-list no-lines>
+      <ion-item padding style="background-color: lightgrey">
+        <ion-thumbnail item-start class="thumbnail">
+          <img src="../../assets/imgs/logo.png">
+        </ion-thumbnail>
+        <ion-title class="title">lite-cart</ion-title>
+      </ion-item>
       <ion-item>
         <ion-item no-lines (click)="viewProfile()">
           <ion-icon item-start name="person"></ion-icon>

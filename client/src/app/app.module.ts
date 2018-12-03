@@ -26,7 +26,6 @@ import { TokenProvider } from '../providers/token/token';
 import { CommentsPage } from '../pages/comments/comments';
 import { CartProvider } from '../providers/cart/cart';
 
-
 @NgModule({
   declarations: [
     MyApp,

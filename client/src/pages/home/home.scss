@@ -24,4 +24,11 @@ page-home {
         margin-right: auto;
         text-align: center;
     }  
+    .thumbnail {
+        img {
+            margin-left: 10px;
+            width: 60px;    
+            height:60px;
+        }
+    }
 }

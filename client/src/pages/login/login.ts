@@ -7,6 +7,7 @@ import { Storage } from '@ionic/storage';
 import { JwtHelper } from 'angular2-jwt';
 import { ProductProvider } from '../../providers/product/product';
 import { TokenProvider } from '../../providers/token/token';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @IonicPage()
@@ -15,12 +16,18 @@ import { TokenProvider } from '../../providers/token/token';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  someForm: FormGroup;
   userLogin = { username: '', password: '' };
   userId = 0;
   token: any;
   jwtHelper: JwtHelper = new JwtHelper();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public userProvider: UserProvider, private storage: Storage, public productProvider: ProductProvider, public tokenProvider:TokenProvider) {
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public navParams: NavParams, private alertCtrl: AlertController, public userProvider: UserProvider, private storage: Storage, public productProvider: ProductProvider, public tokenProvider:TokenProvider) {
+    this.someForm = formBuilder.group({
+      'input1': ['', Validators.compose([Validators.required])],
+      'input2': ['', Validators.compose([Validators.required])]
+    });
+  
   }
 
   ionViewDidLoad() {
