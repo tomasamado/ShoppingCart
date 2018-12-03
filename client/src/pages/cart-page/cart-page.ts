@@ -26,9 +26,12 @@ export class CartPage {
   }
 
   totalCost(data){
+    if(data.length>0){
     data.forEach(element => {
       this.cost = (+this.cost + +element.price*element.quantity)
     });
+  }
+  else{this.cost=0;}
   }
 
   getCart() {
@@ -44,14 +47,18 @@ export class CartPage {
   checkout(){
     this.cart.forEach(element => {
       this.cartProvider.deleteCart(element).subscribe((result) => {
-        let alert = this.alertCtrl.create({
-          title: 'Success',
-          message: 'The product was successfully deleted',
-          buttons: ['Dismiss']
-        });
-        alert.present();
+        
       });
+      
     });
+    this.getCart();
+    this.cost=0;
+    let alert = this.alertCtrl.create({
+      title: 'Success',
+      message: 'Checkout Successful!',
+      buttons: ['Dismiss']
+    });
+    alert.present();
   }
   deleteCartProduct(product){
     const confirm = this.alertCtrl.create({
@@ -68,15 +75,16 @@ export class CartPage {
           text: 'Yes',
           handler: () => {
             this.cartProvider.deleteCart(product).subscribe((result) => {
+              this.getCart();
               let alert = this.alertCtrl.create({
                 title: 'Success',
                 message: 'The product was successfully deleted',
                 buttons: ['Dismiss']
               });
               alert.present();
+              
             });
-            this.navCtrl.pop();
-            this.navCtrl.push(CartPage);
+
           }
         
         }

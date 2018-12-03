@@ -1,17 +1,17 @@
 <ion-content padding>
-    <img src="../../assets/imgs/logo.png" class="center" width="150px" height="150px" style="margin-top: 20px; margin-bottom: 20px">
+    <img src="../../assets/imgs/lite-cart logo.png" class="center" width="150px" height="150px" style="margin-top: 20px; margin-bottom: 20px">
 
   <ion-list>
-    <ion-item>
+    <ion-item class="item-content">
       <ion-label floating>Username</ion-label>
-      <ion-input type="text" [(ngModel)]="userLogin.username" name="username" class="input"></ion-input>>
+      <ion-input type="text"   [(ngModel)]="userLogin.username" name="username" class="input"></ion-input>>
     </ion-item>
-    <ion-item>
+    <ion-item class="item-content">
       <ion-label floating>Password</ion-label>
       <ion-input type="password" [(ngModel)]="userLogin.password" name="password" class="input"></ion-input>
     </ion-item>
   </ion-list>
 
-  <button ion-button block class="loginbutton" (click)="login()" padding style="background-color: #6083ba">Login</button>
-  <button ion-button block clear (click)="goRegister()" padding style="color: #6083ba">Create Account</button>
+  <button ion-button block class="loginbutton" (click)="login()" padding style="background-color: #D15D63">Login</button>
+  <button ion-button block clear (click)="goRegister()" padding style="color: #D15D63">Create Account</button>
 </ion-content>
