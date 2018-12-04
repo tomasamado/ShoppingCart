@@ -1,12 +1,11 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>cart</ion-title>
+    <ion-title>Cart</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-  <product-component></product-component>
   <ion-card>
     <ion-card-header style="margin-left:10px ">
       Total: <b> ${{cost}} </b>
@@ -26,7 +25,7 @@
       <ion-list>
         <ion-buttons end>
           <button ion-button clear small color="dark" (click)="checkout()">
-            Checkout
+            Checkout 
             <ion-icon name="pricetag" color="dark"></ion-icon>
           </button>
         </ion-buttons>
