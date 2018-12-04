@@ -10,7 +10,7 @@ router.register(r'ownproduct', views.OwnProductViewSet)
 router.register(r'comment', views.CommentByProductViewSet)
 router.register(r'commentId', views.CommentViewSet)
 router.register(r'cart', views.CartViewSet)
-# router.register(r'profilepic', views.ProfilePictureViewSet)
+router.register(r'profilepic', views.ProfilePictureViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
