@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <img src="../../assets/imgs/user.png" style="width:130px; height:130px" class="center" (click)='changePicture()'><br>
+  <img [src]="profilePic.image" style="width:150px; height:150px" class="center" (click)='changePicture()'><br>
 
 
   <ion-list style="margin-top: 20px" no-lines class="list">

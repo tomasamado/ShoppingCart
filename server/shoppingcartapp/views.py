@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from .models import Product, Comment, Cart
+from .models import Product, Comment, Cart, ProfilePicture
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
-from shoppingcartapp.serializers import UserSerializer, ProductSerializer, CommentSerializerRead, CommentSerializerWrite, CartSerializer
+from shoppingcartapp.serializers import UserSerializer, ProductSerializer, CommentSerializerRead, CommentSerializerWrite, CartSerializer, ProfilePictureSerializer
 from rest_framework.response import Response
 from rest_framework import status
 
@@ -127,22 +127,29 @@ class CartViewSet(viewsets.ModelViewSet):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# class ProfilePictureViewSet(viewsets.ModelViewSet):
-#     """
-#     API endpoint that allows users to be viewed or edited.
-#     """
-#     queryset = ProfilePicture.objects.all().order_by('user_id')
-#     serializer_class = ProfilePictureSerializer
-#     pagination_class: None
+class ProfilePictureViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = ProfilePicture.objects.all().order_by('user_id')
+    serializer_class = ProfilePictureSerializer
+    pagination_class: None
+    permission_classes = (AllowAny,)
 
-#     def get_paginated_response(self, data):
-#         return Response(data)
+    def get_paginated_response(self, data):
+        return Response(data)
+    def get_queryset(self):
+        user = self.request.query_params.get('user_id')
+        return ProfilePicture.objects.filter(user_id = user)
 
-#     def create(self, request, *args, **kwargs):
-#         nv = ProfilePicture(user_id = self.request.user)
-#         serializer = self.serializer_class(nv, data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#         else:
-#             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class ProfilePictureUpdateViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = ProfilePicture.objects.all().order_by('user_id')
+    serializer_class = ProfilePictureSerializer
+    pagination_class: None
+    permission_classes = (AllowAny,)
+
+    def get_paginated_response(self, data):
+        return Response(data)

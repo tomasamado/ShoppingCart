@@ -36,7 +36,13 @@ export class UserProvider {
     return this.http.delete(this.tokenProvider.apiUrl + 'user/' + data.id + '/', this.tokenProvider.tokenHeader)
   }
 
-  // addPicture(data) {
-  //   return this.http.post(this.tokenProvider.apiUrl + 'profilepic/', JSON.stringify(data), this.tokenProvider.tokenHeader)
-  // }
+  addPicture(data) {
+    return this.http.post(this.tokenProvider.apiUrl + 'profilepic/', JSON.stringify(data), httpOptions)
+  }
+  getPicture(id){
+    return this.http.get(this.tokenProvider.apiUrl + 'profilepic/?user_id=' + id, httpOptions)
+  }
+  updatePicture(data) {
+    return this.http.put(this.tokenProvider.apiUrl + 'profilepicUpdate/'+data.id + '/', JSON.stringify(data), httpOptions)
+  }
 }
