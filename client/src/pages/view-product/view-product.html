@@ -20,17 +20,17 @@
       <ion-col>
         <ion-buttons class="center">
           <button *ngIf="(product.quantity>0); else other_content" ion-button icon-start small (click)="addProduct()"
-            style="background-color: #6083ba">
+              style="background-color: #D15D63">
             <ion-icon name="cart"></ion-icon>
             Add to cart
           </button>
           <ng-template #other_content>
-            <button disabled="true" ion-button icon-start small (click)="addProduct()" style="background-color: #6083ba">
+            <button disabled="true" ion-button icon-start small (click)="addProduct()" style="background-color: #D15D63">
               <ion-icon name="cart"></ion-icon>
               Add to cart
             </button>
           </ng-template>
-          <button ion-button icon-start small (click)="viewComments()" style="background-color: #6083ba">
+          <button ion-button icon-start small (click)="viewComments()" style="background-color: #D15D63">
             <ion-icon name="text"></ion-icon>
             <div>{{comments.length}} Comments</div>
           </button>

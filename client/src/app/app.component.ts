@@ -17,7 +17,7 @@ export class MyApp {
     platform.ready().then(() => {
 
       statusBar.styleDefault();
-      splashScreen.hide();
+      splashScreen.show();
       this.tokenProvider.getFromStorage().then((result) => {
         this.currentUser = result; 
         this.rootPage = this.currentUser ? HomePage : LoginPage;

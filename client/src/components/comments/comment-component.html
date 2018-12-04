@@ -1,5 +1,5 @@
 <ion-list no-padding>
-  <ion-item *ngFor="let comment of comments let i=index" (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}"
+  <ion-item *ngFor="let comment of comments let i=index" [ngClass]="{active: isGroupShown(i)}"
     text-wrap no-padding>
     <ion-item no-lines>
       <ion-avatar item-start>
@@ -24,7 +24,7 @@
           <button ion-button clear small color="dark" (click)="addReply(comment)">
             Reply
           </button>
-          <button ion-button clear small item-right color="dark" (click)="getReplies(comment)" style="margin-left: 5px">
+          <button ion-button clear small item-right color="dark" (click)="getReplies(comment)"  (click)="toggleGroup(i)"  style="margin-left: 5px">
             <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
             Replies
           </button>

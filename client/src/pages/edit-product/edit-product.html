@@ -32,22 +32,13 @@
 
       <ion-item no-lines>
         <ion-buttons class="center">
-          <button ion-button style="background-color: #6083ba" small (click)="updateProduct()">
+          <button ion-button style="background-color: #D15D63" small (click)="updateProduct()">
             Save changes
           </button>
-          <button ion-button style="background-color: danger" small color='danger' (click)="deleteProduct()">
-            Delete product <ion-icon name="trash"></ion-icon>
+          <button ion-button style="background-color: rgb(121, 34, 39)" small color='danger' (click)="deleteProduct()">
+            Delete product 
           </button>
         </ion-buttons>
-      </ion-item>
-      <ion-item no-lines>
-        <ion-row>
-          <ion-col center text-center>
-            <ion-note>
-              {{product.created.substr(8,2)}}/{{product.created.substr(5,2)}}/{{product.created.substr(0, 4)}}
-            </ion-note>
-          </ion-col>
-        </ion-row>
       </ion-item>
     </ion-list>
   </ion-card-content>

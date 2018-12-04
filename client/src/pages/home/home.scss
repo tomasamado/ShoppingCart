@@ -10,6 +10,13 @@ page-home {
             }
         }
      }
+     .title{
+        font-size: 1.875em;
+        letter-spacing: 2.2px;
+        display: block;
+        text-align: center;
+        color:rgb(56, 56, 56) ;
+    }
 
     .item ion-icon{
         color:#D15D63
@@ -22,7 +29,7 @@ page-home {
         margin-top: 10px;
         margin-bottom: 10px;
     }
-        .center {
+    .center {
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -30,9 +37,10 @@ page-home {
     }  
     .thumbnail {
         img {
-            margin-left: 10px;
+            margin-left: 30px;
             width: 60px;    
             height:60px;
+            margin-top: 10px;
         }
     }
 }

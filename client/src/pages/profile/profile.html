@@ -5,12 +5,10 @@
 </ion-header>
 
 <ion-content padding>
-  <img src="../../assets/imgs/user.png" style="width:150px; height:150px" class="center" (click)='changePicture()'><br>
-  <button ion-button style="background-color: #6083ba" small class='center' (click)="updateProfile()">
-    Save changes
-  </button>
+  <img src="../../assets/imgs/user.png" style="width:130px; height:130px" class="center" (click)='changePicture()'><br>
 
-  <ion-list style="margin-top: 40px" no-lines class="list">
+
+  <ion-list style="margin-top: 20px" no-lines class="list">
     <ion-item no-lines>
       <ion-label floating>Name</ion-label>
       <ion-textarea class="inputitle" rows=1 placeholder="Title" [(ngModel)]="user.first_name" name="first_name" style="text-align: center"
@@ -25,8 +23,7 @@
     </ion-item>
     <ion-item no-lines>
       <ion-label floating>Email</ion-label>
-      <ion-textarea rows=1 placeholder="Title" [(ngModel)]="user.email" name="email" style="text-align: center"
-        class="input">
+      <ion-textarea rows=1 placeholder="Title" [(ngModel)]="user.email" name="email" style="text-align: center" class="input">
         {{user.email}}</ion-textarea>
     </ion-item>
     <ion-item no-lines>
@@ -36,23 +33,13 @@
         {{user.username}}</ion-textarea>
     </ion-item>
   </ion-list>
-
-  <button ion-button style="background-color: #6083ba" small block class='center' (click)="myProducts()">
-    My Products
+  <button block ion-button style="background-color: #D15D63; margin-bottom: 8px" small (click)="changePassword()">
+    Change password
   </button>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-6 style="text-align: center">
-        <button ion-button style="background-color: #6083ba" small (click)="changePassword()">
-          Change password
-        </button>
-      </ion-col>
-      <ion-col col-4>
-        <button ion-button style="background-color: danger;" small color='danger' (click)="deleteUser()">
-          Delete account
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
+  <button block ion-button style="background-color: #D15D63; margin-bottom: 8px" small class='center' (click)="updateProfile()">
+    Save changes
+  </button>
+  <button block ion-button style="background-color: rgb(121, 34, 39)" small color='danger' (click)="deleteUser()">
+    Delete account
+  </button>
 </ion-content>

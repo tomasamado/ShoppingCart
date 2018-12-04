@@ -2,7 +2,7 @@
   <img src="../../assets/imgs/logo.png" class="center" width="150px" height="150px" style="margin-top: 20px">
   <div [formGroup]="someForm">
     <ion-item no-lines class="item-content">
-      <ion-title class="title">lite-cart</ion-title>
+      <h1 class="title">lite-cart</h1>
     </ion-item>
     <ion-list style="margin-top: 20px;">
       <ion-item class="item-content">
@@ -14,7 +14,6 @@
         <ion-input formControlName="input2" type="password" [(ngModel)]="userLogin.password" name="password" class="input"></ion-input>
       </ion-item>
     </ion-list>
-
     <button ion-button block class="loginbutton" (click)="login()" padding style="background-color: #D15D63" [disabled]="!someForm.valid">Login</button>
     <button ion-button block clear (click)="goRegister()" padding style="color: #D15D63">Create Account</button>
   </div>
