@@ -1,6 +1,6 @@
 page-home {
     .toolbar-background {
-        background-color: #6083ba;
+        background-color: #D15D63;
       }
 
       ion-searchbar{        
@@ -10,6 +10,10 @@ page-home {
             }
         }
      }
+
+    .item ion-icon{
+        color:#D15D63
+    }
 
     .home{
         width: 100%;
