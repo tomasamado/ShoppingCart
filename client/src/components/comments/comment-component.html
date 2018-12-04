@@ -34,7 +34,7 @@
       <ng-container no-padding *ngIf="isGroupShown(i)">
     <ion-item *ngFor="let reply of replies let i=index" style="margin-left: 10px" no-lines (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
       <ion-avatar item-start>
-        <img src="../../assets/imgs/user.png">
+        <img [src]="reply.profile_image">
       </ion-avatar>
       <p style=" font-size: small">{{reply.user_id.username}} • <span style=" font-size: 9pt" *ngIf="reply.edited; else createdReply">Edited
         at {{reply.updated?.substring(0, 10)}} {{reply.updated?.substring(11, 16)}} </span>

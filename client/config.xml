@@ -3,7 +3,7 @@
     <name>client</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.1.8:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -86,6 +86,7 @@
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="To choose photos" />
     </plugin>
     <plugin name="cordova-plugin-camera" spec="4.0.3" />
-    <engine name="android" spec="~7.1.2" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
+    <allow-navigation href="http://192.168.1.8:8100" sessionid="af31bb2f" />
+    <engine name="android" spec="7.1.2" />
 </widget>

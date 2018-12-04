@@ -14,6 +14,7 @@ export class CommentComponent {
   @Input() user: any;
   @Input() product: any;
   @Input() allComments: any ={};
+  @Input() profilePic: any ={};
 
   text: string;
   delete: boolean = true;
@@ -24,7 +25,6 @@ export class CommentComponent {
   filteredComments: any ={};
   replies: any =[];
   reply: any ={product_id : 0};
-  profilePic: any ={};
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, private viewCtrl: ViewController, public commentProvider: CommentProvider,public userProvider: UserProvider, public modalCtrl: ModalController, public navParams: NavParams) {
 
   }
@@ -129,6 +129,10 @@ export class CommentComponent {
         {
           text: 'Save',
           handler: data => {
+            this.reply.content = data.content
+            this.reply.product_id = this.product.id;
+            this.reply.parent_id=comment.id;
+            this.reply.profile_image=this.profilePic.image;
             this.commentProvider.createComment(this.reply).subscribe((result) => {
             this.allComments.push(result);
             }, (err) => {
