@@ -3,7 +3,7 @@
     text-wrap no-padding>
     <ion-item no-lines>
       <ion-avatar item-start>
-        <img src="../../assets/imgs/user.png">
+        <img [src]="comment.profile_image">
       </ion-avatar>
       <p style=" font-size: small">{{comment.user_id.username}} • <span style=" font-size: 9pt" *ngIf="comment.edited; else createdComment">Edited
           at {{comment.updated?.substring(0, 10)}} {{comment.updated?.substring(11, 16)}} </span>

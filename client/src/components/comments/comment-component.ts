@@ -3,6 +3,7 @@ import { NavController, ViewController, ModalController, AlertController, NavPar
 import { ViewProductPage } from '../../pages/view-product/view-product';
 import { CommentProvider } from '../../providers/comment/comment';
 import { HomePage } from '../../pages/home/home';
+import { UserProvider } from '../../providers/user/user';
 
 @Component({
   selector: 'comment-component',
@@ -23,8 +24,8 @@ export class CommentComponent {
   filteredComments: any ={};
   replies: any =[];
   reply: any ={product_id : 0};
-
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private viewCtrl: ViewController, public commentProvider: CommentProvider, public modalCtrl: ModalController, public navParams: NavParams) {
+  profilePic: any ={};
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private viewCtrl: ViewController, public commentProvider: CommentProvider,public userProvider: UserProvider, public modalCtrl: ModalController, public navParams: NavParams) {
 
   }
 
@@ -65,7 +66,13 @@ export class CommentComponent {
   getReplies(comment){
     this.replies = this.allComments.filter(data => ( data.parent_id == comment.id ));
   }
-
+  // getPicture() {
+  //   this.userProvider.getPicture(this.user.id)
+  //     .subscribe(data => {
+  //       this.comment.profile_image = data[0];
+  //       console.log(this.profilePic);
+  //     });
+  // }
   updateComment(comment) {
     const prompt = this.alertCtrl.create({
       title: 'Update comment',

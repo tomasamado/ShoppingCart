@@ -44,14 +44,14 @@ class CommentSerializerRead(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ('id', 'content','product_id','user_id','created','updated','edited','parent_id')
+        fields = ('id', 'content','product_id','user_id','created','updated','edited','parent_id', 'profile_image')
         depth = 1
 
 class CommentSerializerWrite(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ('id', 'content','user_id','product_id','created','updated','edited','parent_id')
+        fields = ('id', 'content','user_id','product_id','created','updated','edited','parent_id', 'profile_image')
 
 class ProductSerializer(serializers.ModelSerializer):
     

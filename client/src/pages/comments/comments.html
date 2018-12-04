@@ -14,7 +14,7 @@
     <ion-list>
       <ion-item>
         <ion-avatar item-start>
-          <img src="../../assets/imgs/user.png">
+          <img [src]="this.profilePic.image">
         </ion-avatar>
         <ion-textarea placeholder="Add new comment..." [(ngModel)]="comment.content" name="content">
         </ion-textarea>
