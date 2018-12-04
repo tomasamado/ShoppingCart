@@ -35,8 +35,7 @@ export class RegisterPage {
             this.userP = result
             var pic = {user_id: this.userP.id}
             this.userProvider.addPicture(pic).subscribe((result) => {
-                console.log
-                this.navCtrl.push(LoginPage)
+                console.log(result);
                 });
         this.navCtrl.push(LoginPage)
         }, (err) => {

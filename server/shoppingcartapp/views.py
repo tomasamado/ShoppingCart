@@ -139,5 +139,17 @@ class ProfilePictureViewSet(viewsets.ModelViewSet):
     def get_paginated_response(self, data):
         return Response(data)
     def get_queryset(self):
-        user = self.request.user
-        return Product.objects.filter(user_id = user)
+        user = self.request.query_params.get('user_id')
+        return ProfilePicture.objects.filter(user_id = user)
+
+class ProfilePictureUpdateViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = ProfilePicture.objects.all().order_by('user_id')
+    serializer_class = ProfilePictureSerializer
+    pagination_class: None
+    permission_classes = (AllowAny,)
+
+    def get_paginated_response(self, data):
+        return Response(data)

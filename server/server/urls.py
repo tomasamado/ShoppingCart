@@ -11,6 +11,7 @@ router.register(r'comment', views.CommentByProductViewSet)
 router.register(r'commentId', views.CommentViewSet)
 router.register(r'cart', views.CartViewSet)
 router.register(r'profilepic', views.ProfilePictureViewSet)
+router.register(r'profilepicUpdate', views.ProfilePictureUpdateViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),

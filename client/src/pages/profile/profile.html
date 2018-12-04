@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <img src="../../assets/imgs/user.png" style="width:150px; height:150px" class="center" (click)='changePicture()'><br>
+  <img [src]="profilePic.image" style="width:150px; height:150px" class="center" (click)='changePicture()'><br>
   <button ion-button style="background-color: #6083ba" small class='center' (click)="updateProfile()">
     Save changes
   </button>

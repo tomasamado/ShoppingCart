@@ -15,10 +15,10 @@ import { LoginPage } from '../login/login';
 })
 export class ProfilePage {
   userLogin = { username: '', password: '' };
-  user:any={};
+  user: any = {};
   userId = 0;
   newPassword: string;
-  profilePic:any={};
+  profilePic: any = {};
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public userProvider: UserProvider, public camera: Camera) {
     this.userId = navParams.get('userId');
     console.log(this.userId)
@@ -30,6 +30,7 @@ export class ProfilePage {
   ionViewDidLoad() {
     console.log("ssd")
     this.getUser();
+    this.getPicture();
   }
 
   getUser() {
@@ -119,7 +120,7 @@ export class ProfilePage {
                   name: 'password',
                   placeholder: 'Enter your password',
                   type: 'password'
-        
+
                 },
               ],
               buttons: [
@@ -146,7 +147,7 @@ export class ProfilePage {
                         this.navCtrl.push(LoginPage);
                       });
                     }, (err) => {
-        
+
                       let alert = this.alertCtrl.create({
                         title: 'Invalid Password',
                         message: 'The password you entered is incorrect',
@@ -169,15 +170,30 @@ export class ProfilePage {
   }
 
   updateProfile() {
-    console.log(this.user);
+    this.userProvider.updatePicture(this.profilePic).subscribe((result) => {
+      console.log(result);
+    });
     this.userProvider.updateUser(this.user).subscribe((result) => {
+
       console.log(result);
     }, (err) => {
       console.log(err);
     });
     this.navCtrl.pop();
   }
-
+  getPicture() {
+    this.userProvider.getPicture(this.userId)
+      .subscribe(data => {
+        this.profilePic = data[0];
+        console.log(this.profilePic);
+      });
+  }
+  updatePicture() {
+    this.userProvider.updatePicture(this.profilePic)
+      .subscribe(data => {
+        console.log(data);
+      });
+  }
   changePicture() {
     console.log('camera');
     const options: CameraOptions = {
