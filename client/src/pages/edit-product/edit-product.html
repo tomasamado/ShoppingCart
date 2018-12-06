@@ -19,15 +19,15 @@
       </ion-item>
       <ion-item>
         <ion-label>Price:</ion-label>
-        <ion-textarea rows=1 [(ngModel)]="product.price" name="price" class="input">
+        <ion-input type='number' [(ngModel)]="product.price" name="price" class="input">
           ${{product.price}}
-        </ion-textarea>
+        </ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Quantity:</ion-label>
-        <ion-textarea rows=1 [(ngModel)]="product.quantity" name="quantity" class="input">
+        <ion-input type='number' [(ngModel)]="product.quantity" name="quantity" class="input">
           {{product.quantity}}
-        </ion-textarea>
+        </ion-input>
       </ion-item>
 
       <ion-item no-lines>

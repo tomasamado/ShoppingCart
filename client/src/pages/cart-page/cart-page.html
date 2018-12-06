@@ -24,7 +24,7 @@
       </ion-list>
       <ion-list>
         <ion-buttons end>
-          <button ion-button clear small color="dark" (click)="checkout()">
+          <button ion-button clear small color="dark" (click)="checkout()" [disabled]="!cart || cart.length === 0">
             Checkout 
             <ion-icon name="pricetag" color="dark"></ion-icon>
           </button>

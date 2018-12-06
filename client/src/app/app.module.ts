@@ -46,7 +46,9 @@ import { CartProvider } from '../providers/cart/cart';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      preloadModules: true
+    }),
     IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
@@ -68,7 +70,7 @@ import { CartProvider } from '../providers/cart/cart';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     Camera,
     PhotoLibrary,
     UserProvider,
@@ -77,6 +79,6 @@ import { CartProvider } from '../providers/cart/cart';
     TokenProvider,
     CartProvider
   ],
-  exports:[CommentComponent]
+  exports: [CommentComponent]
 })
-export class AppModule {}
+export class AppModule { }

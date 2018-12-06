@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { CartProvider } from '../../providers/cart/cart';
+import { HomePage } from '../home/home';
 
 
 @IonicPage()
@@ -56,10 +57,23 @@ export class CartPage {
     let alert = this.alertCtrl.create({
       title: 'Success',
       message: 'Checkout Successful!',
-      buttons: ['Dismiss']
+      buttons: [
+        {
+          text: 'Dissmiss',
+          handler: () => {
+          }
+        },
+        {
+          text: 'Continue shopping',
+          handler: () => {
+            this.navCtrl.push(HomePage)
+          }
+        }
+      ]
     });
     alert.present();
   }
+  
   deleteCartProduct(product){
     const confirm = this.alertCtrl.create({
       title: 'Do you want to delete this product from your cart?',

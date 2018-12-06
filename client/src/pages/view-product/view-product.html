@@ -13,14 +13,16 @@
       <p>{{product.description}}</p>
       <p style="margin-top: 10px">Price: ${{product.price}}</p>
       <p style="margin-top: 10px" *ngIf="product.quantity==0; else available">Out of Stock</p>
-      <ng-template #available ><p style="margin-top: 10px"><b>{{product.quantity}}</b> Available</p></ng-template>
-        
+      <ng-template #available>
+        <p style="margin-top: 10px"><b>{{product.quantity}}</b> Available</p>
+      </ng-template>
+
     </ion-card-content>
     <ion-row>
       <ion-col>
         <ion-buttons class="center">
           <button *ngIf="(product.quantity>0); else other_content" ion-button icon-start small (click)="addProduct()"
-              style="background-color: #D15D63">
+            style="background-color: #D15D63">
             <ion-icon name="cart"></ion-icon>
             Add to cart
           </button>
@@ -38,12 +40,12 @@
       </ion-col>
     </ion-row>
     <ion-row>
-        <ion-col center text-center>
-          <ion-note>
-            {{product.created.substr(8,2)}}/{{product.created.substr(5,2)}}/{{product.created.substr(0, 4)}}
-          </ion-note>
-        </ion-col>
-      </ion-row>
+      <ion-col center text-center>
+        <ion-note>
+          {{product.created.substr(8,2)}}/{{product.created.substr(5,2)}}/{{product.created.substr(0, 4)}}
+        </ion-note>
+      </ion-col>
+    </ion-row>
 
   </ion-card>
 
