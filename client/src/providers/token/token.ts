@@ -11,7 +11,7 @@ const httpOptions = {
 @Injectable()
 export class TokenProvider {
   token: any;
-  apiUrl = 'http://192.168.10.103:8100/';
+  apiUrl = 'http://127.0.0.1:8100/';
   tokenHeader = {};
 
   constructor(public http: HttpClient, private storage: Storage) {
